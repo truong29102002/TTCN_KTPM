@@ -1,0 +1,191 @@
+﻿<Page x:Class="QLCHXE.Shared.QLOTO"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLCHXE.Shared"
+        mc:Ignorable="d"
+        Title="Quan Ly OTO" Height="900" Width="1350" FontSize="14">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnThem_Click">Thêm</Button>
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnXoa_Click">Xóa</Button>
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
+        </StackPanel>
+        <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe ô tô</TextBlock>
+        <StackPanel Margin="50,50,50,0" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Width="275" Margin="20,20,0,0">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Vertical" Grid.ColumnSpan="1">
+
+                        <StackPanel Margin="0,10,10,10">
+                            <TextBlock Text="Tên xe: "/>
+                        </StackPanel>
+
+
+                        <StackPanel Margin="0,15,10,10">
+                            <TextBlock Text="Hãng sản xuất: "/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,15,10,10">
+                            <TextBlock Text="Sản xuất năm: "/>
+                        </StackPanel>
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Margin="0,10,0,10">
+                            <TextBox x:Name="txtTenXe"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,10,10,10">
+                            <ComboBox  x:Name="cbxHangsx" HorizontalAlignment="Left" Width="150" HorizontalContentAlignment="Left" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,10,10,10">
+                            <ComboBox Width="100" HorizontalAlignment="Left" x:Name="cbxNamsx"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="251" Margin="20,20,0,0">
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Giá bán: "/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10,13,10,10">
+                            <TextBlock Text="Đơn vị: "/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10,13,10,10">
+                            <TextBlock Text="Ngày nhập: "/>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Margin="10">
+                            <TextBox x:Name="txtGiaban"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10">
+                            <TextBox x:Name="txtDonVi"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10">
+                            <DatePicker x:Name="dateNgayNhap"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                </Grid>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Width="280" Margin="20,20,0,0">
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Số chỗ ngồi: " VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10,13,10,10">
+                            <TextBlock Text="Số lượng: " VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10,13,10,10">
+                            <TextBlock Text="Màu: " VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Margin="10">
+                            <TextBox x:Name="txtSoChoNgoi"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10">
+                            <TextBox x:Name="txtSoluong"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10">
+                            <ComboBox Width="120" x:Name="cbxMau" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                </Grid>
+
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Width="278" Margin="20,20,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Mô tả:" Margin="0,0,10,0"/>
+                    <TextBox Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True" Margin="30,0,0,0"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBlock Text="Kiểu động cơ:" Margin="0,0,10,0"/>
+                    <TextBox Width="153" x:Name="txtDongCo"></TextBox>
+                </StackPanel>
+
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical" Margin="0,50,0,0">
+            <TextBlock Text="Thong tin oto" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
+            <DataGrid Height="500" Width="1000" x:Name="dtgQLXoto" IsReadOnly="False" Margin="30 50 100 0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="True" SelectedCellsChanged="dtgQLXoto_SelectedCellsChanged" >
+                <DataGrid.Columns>
+                    
+                    <DataGridTextColumn Header="Tên xe" Binding="{Binding TenXe}"/>
+                    <DataGridTextColumn Header="Hãng xe" Binding="{Binding HangXeDT}"/>
+                    <DataGridTextColumn Header="Năm sản xuất" Binding="{Binding Namsx}"/>
+                    <DataGridTextColumn Header="Giá bán" Binding="{Binding GiaBan}"/>
+                    <DataGridTextColumn Header="Màu" Binding="{Binding MauDT}"/>
+                    <DataGridTextColumn Header="Kiểu động cơ" Binding="{Binding Kieudongco}"/>
+                    <DataGridTextColumn Header="Số chỗ ngồi" Binding="{Binding Sochongoi}"/>
+                    <DataGridTextColumn Header="Ngày nhập" Binding="{Binding NgayNhap}"/>
+                    <DataGridTextColumn Header="Số lượng còn" Binding="{Binding SLCon}"/>
+                    <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}"/>
+                    <DataGridTextColumn Header="Mô tả" Binding="{Binding MoTa}"/>
+                    <DataGridTextColumn Header="Tình trạng" Width="*" Binding="{Binding TinhTrang}"/>
+                    <DataGridCheckBoxColumn Header="X" Binding="{Binding isChecked}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

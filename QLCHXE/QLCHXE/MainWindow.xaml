@@ -1,0 +1,39 @@
+﻿<Window x:Class="QLCHXE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLCHXE"
+        mc:Ignorable="d"
+        Height="300" Width="450"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column ="0" Content="Đăng nhập" FontSize="30" FontFamily="Jokerman" />
+        <StackPanel Grid.Row="1">
+            <Label Content="_Tài khoản:" Target="{Binding ElementName=txtTk}" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+            <Label Content="_Mật khẩu:" Target="{Binding ElementName=txtMK}" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="txtTk" Margin="0,10,0,0" Padding="0,5,0,5"/>
+            <PasswordBox x:Name="txtMK" Margin="0,10,0,0" Padding="0,5,0,5"/>
+            <Button x:Name="btnDN" Cursor="Hand" Width="100" Height="25" Margin="0,20,0,0" Content="Đăng nhập" Click="btnDN_Click"/>
+            <Label x:Name="lbFeedB"  Cursor="Hand" Foreground="#FF0E3DD5" FontStyle="Italic" Padding="0" FontSize="14" HorizontalAlignment="Right" Margin="0,50,0,0" MouseLeftButtonUp="lbFeedB_MouseLeftButtonUp" >
+                <TextBlock Style="{DynamicResource labelStyle}" FontFamily="Times New Roman"   >FeedBack to Admin</TextBlock>
+            </Label>
+        </StackPanel>
+        <Grid.Resources>
+            <Style x:Key="labelStyle">
+                <Setter Property="TextBlock.TextDecorations" Value="Underline"></Setter>
+
+            </Style>
+        </Grid.Resources>
+    </Grid>
+</Window>

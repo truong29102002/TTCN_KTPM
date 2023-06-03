@@ -1,0 +1,51 @@
+﻿<Window x:Class="QLCHXE.NhanVien.TrangChuNV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLCHXE.NhanVien"
+        mc:Ignorable="d"
+        Title="TrangChuNV" Height="600" Width="1000">
+    <Grid>
+        <TabControl x:Name="tabControlMain">
+            <TabItem Header="Trang chu">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Hidden">
+                        <StackPanel>
+
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Margin="0,10,0,0" Click="Btn_QuanLyXeMay_Click">Quan ly Xe May</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Margin="0,10,0,0" Click="Btn_QuanLyOto_Click">Quan ly Oto</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Margin="0,10,0,0" Click="Btn_QuanLyXetai_Click">Quan ly Xe Tai</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Margin="0,10,0,0">Nhap Xe May</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Margin="0,10,0,0">Nhap Oto</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Margin="0,10,0,0">Nhap Xe Tai</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_ThongKeDT" Margin="0,10,0,0">Doanh Thu</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Margin="0,10,0,0">Quan Ly Ban Xe</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Margin="0,10,0,0">Doi mat khau</Button>
+                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Margin="0,10,0,0">Dang xuat</Button>
+                        </StackPanel>
+                    </ScrollViewer>
+                    
+
+                    <StackPanel  Grid.Column="1">
+                        <Image  x:Name="Img_TT" Height="550">
+                            <Image.Source>
+                                <BitmapImage DecodePixelWidth="1080" UriSource="/wwwroot/image_TT.jpg"/>
+                            </Image.Source>
+                        </Image>
+                    </StackPanel>
+
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Huong dan"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="QLCHXE.Admin.TrangChuAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLCHXE.Admin"
+        mc:Ignorable="d"
+        Title="TrangChuAdmin" 
+       WindowState="Maximized"
+        WindowStyle="None">
+
+    <Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="2" Background="Aqua">
+                <TextBlock Margin="10 0 0 0" FontSize="16" HorizontalAlignment="Left" DockPanel.Dock="Left">Quản lý của hàng</TextBlock>
+                <StackPanel Width="60" Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <TextBlock Style="{StaticResource HoverStyle}" FontSize="20" Cursor="Hand" Width="30" Height="30" x:Name="hidden" MouseLeftButtonUp="hidden_MouseLeftButtonUp" Padding="10 0 0 0">-</TextBlock>
+                    <TextBlock Style="{StaticResource HoverStyle}" FontSize="16" Cursor="Hand" Width="30" Height="30" x:Name="close" MouseLeftButtonUp="close_MouseLeftButtonUp" Padding="10 3 0 0" >X</TextBlock>
+                </StackPanel>
+               
+                
+            </DockPanel>
+
+            <ScrollViewer Grid.Column="0" Grid.Row="1" Background="Beige" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+
+                <StackPanel Margin="0 20 0 0">
+
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyNV" Click="Btn_QuanLyNV_Click">Quản lý nhân viên</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Click="Btn_QuanLyXeMay_Click">Quản lý xe máy</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Click="Btn_QuanLyOto_Click">Quản lý ô tô</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Click="Btn_QuanLyXetai_Click">Quản lý xe tải</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Nhập xe máy</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Nhập ô tô</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Nhập xe tải</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_ThongKeDT" Click="Btn_ThongKeDT_Click">Doanh Thu</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Quản lý bán xe</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" Margin="0,10,0,0">Đổi mật khẩu</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
+                </StackPanel>
+            </ScrollViewer>
+
+
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1">
+
+            </Frame>
+
+
+
+
+
+        </Grid>
+    </Grid>
+    
+
+</Window>
+
+
