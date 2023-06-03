@@ -14,10 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TestPJ.Models;
-<<<<<<< HEAD
+
 using TestPJ.wwwroot;
-=======
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
 
 namespace TestPJ.Shared
 {
@@ -27,11 +26,9 @@ namespace TestPJ.Shared
     public partial class QLXeTai : Page
     {
         private readonly QLCHXeContext _db;
-<<<<<<< HEAD
-        private List<GridXeTai> listData;
-=======
 
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+        private List<GridXeTai> listData;
+
         public void LoadCBXHSX()
         {
             var query = from i in _db.HangXes orderby i.Tenhanngxe ascending select i;
@@ -58,11 +55,7 @@ namespace TestPJ.Shared
 
         public void LoadDtgView()
         {
-<<<<<<< HEAD
-=======
-            var checkSL = _db.PhuongTiens.Select(i => i.Soluong).ToList();
 
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
             var sql = from i in _db.PhuongTiens
                       join j in _db.XeTais on i.IdPt equals j.IdPt
                       join k in _db.HangXes on i.IdHangXe equals k.IdHangXe
@@ -76,11 +69,7 @@ namespace TestPJ.Shared
                           Namsx = i.NamSx,
                           GiaBan = i.Gia,
                           MauDT = m.Tenmau,
-<<<<<<< HEAD
                           TrongTai = j.Trongtai,
-=======
-                          TrongTai = j.Trongtai + " Kg",
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
                           NgayNhap = i.Ngaynhap.ToString(),
                           SLCon = i.Soluong,
                           DonVi = i.Donvi,
@@ -89,7 +78,7 @@ namespace TestPJ.Shared
                           
                       };
 
-<<<<<<< HEAD
+
             listData = new List<GridXeTai>();
             listData.Clear();
             foreach (var item in sql)
@@ -115,11 +104,7 @@ namespace TestPJ.Shared
 
 
             dtgXeTai.ItemsSource = listData;
-=======
 
-            
-            dtgXeTai.ItemsSource = sql.ToList();
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         }
         public QLXeTai()
         {
@@ -133,7 +118,7 @@ namespace TestPJ.Shared
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
+
             try
             {
                 string idPT = "PT" + (_db.PhuongTiens.Count() + RandomNumberGenerator.GetInt32(1000, 9999)).ToString();
@@ -169,14 +154,12 @@ namespace TestPJ.Shared
                 MessageBox.Show("Error: " + ex.Message);
 
             }
-=======
 
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         }
 
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
+
             if (dtgXeTai.SelectedItem != null)
             {
                 if (string.IsNullOrEmpty(txtTrongTai.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtSoluong.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()) || string.IsNullOrEmpty(dateNgayNhap.Text.Trim()))
@@ -226,14 +209,11 @@ namespace TestPJ.Shared
                 }
 
             }
-=======
-
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         }
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
+
             #region xoaXe
             int count = 0;
             foreach (var item in listData)
@@ -348,14 +328,12 @@ namespace TestPJ.Shared
                 #endregion
             }
             #endregion
-=======
 
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         }
 
         private void btnNhapMoi_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
+
             txtTenXe.Text = "";
             txtSoluong.Text = "";
             txtMota.Text = "";
@@ -397,9 +375,6 @@ namespace TestPJ.Shared
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
-=======
-
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         }
     }
 }

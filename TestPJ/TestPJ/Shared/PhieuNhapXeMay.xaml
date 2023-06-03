@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿<Page x:Class="TestPJ.Shared.PhieuNhapXeMay"
-=======
-﻿<Window x:Class="TestPJ.Shared.PhieuNhapXeMay"
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+<Page x:Class="TestPJ.Shared.PhieuNhapXeMay"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,8 +9,5 @@
     <Grid>
         
     </Grid>
-<<<<<<< HEAD
+
 </Page>
-=======
-</Window>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929

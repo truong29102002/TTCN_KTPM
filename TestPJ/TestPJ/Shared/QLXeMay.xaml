@@ -5,13 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestPJ.Shared"
         mc:Ignorable="d"
-<<<<<<< HEAD
-        Title="Quan ly xe may" Height="800" Width="1350" FontSize="14"
+        Height="800" Width="1350" FontSize="14"
         >
-=======
-        Title="Quan ly xe may" Height="800" Width="1500" FontSize="13"
-        WindowState="Maximized">
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
@@ -26,17 +21,10 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
-<<<<<<< HEAD
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnThem_Click">Thêm</Button>
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnXoa_Click">Xóa</Button>
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
-=======
-            <Button x:Name="btnThem" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnThem_Click">Them</Button>
-            <Button x:Name="btnSua" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Sua</Button>
-            <Button x:Name="btnXoa" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnXoa_Click">Xoa</Button>
-            <Button x:Name="btnNhapMoi" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Nhap Moi</Button>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe máy</TextBlock>
         <StackPanel Margin="50,50,50,0" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
@@ -170,14 +158,10 @@
                     <TextBlock Text="Mô tả:" Margin="0,0,10,0"/>
                     <TextBox Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
                 </StackPanel>
-
-
-
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
-<<<<<<< HEAD
             <TextBlock Text="Thông tin xe máy" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
             <DataGrid x:Name="dtgQLXM" IsReadOnly="False" CanUserDeleteRows="True" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" SelectedCellsChanged="dtgQLXM_SelectedCellsChanged" Height="500">
                 <DataGrid.Columns>
@@ -194,25 +178,6 @@
                     <DataGridTextColumn Header="Mô tả" Binding="{Binding MoTa}"/>
                     <DataGridTextColumn Header="Tình trạng" Width="*" Binding="{Binding TinhTrang}"/>
                     <DataGridCheckBoxColumn Header=" X " Binding="{Binding isChecked}"/>
-=======
-            <TextBlock Text="Thong tin xe may" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
-            <DataGrid x:Name="dtgQLXM" ItemsSource="{Binding listData}" IsReadOnly="False" CanUserDeleteRows="True" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" SelectedCellsChanged="dtgQLXM_SelectedCellsChanged" Height="500">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ma xe" Binding="{Binding IdMaXe}"/>
-                    <DataGridTextColumn Header="Ma Phuong Tien" Binding="{Binding IdPt}"/>
-                    <DataGridTextColumn Header="Ten xe" Binding="{Binding TenXe}"/>
-                    <DataGridTextColumn Header="Hang xe" Binding="{Binding HangXeDT}"/>
-                    <DataGridTextColumn Header="Nam san xuat" Binding="{Binding Namsx}"/>
-                    <DataGridTextColumn Header="Gia ban" Binding="{Binding GiaBan}"/>
-                    <DataGridTextColumn Header="Mau" Binding="{Binding MauDT}"/>
-                    <DataGridTextColumn Header="Phan phoi" Binding="{Binding CongSuat}"/>
-                    <DataGridTextColumn Header="Ngay nhap" Binding="{Binding NgayNhap}"/>
-                    <DataGridTextColumn Header="So luong con" Binding="{Binding SLCon}"/>
-                    <DataGridTextColumn Header="Don vi" Binding="{Binding DonVi}"/>
-                    <DataGridTextColumn Header="Mo ta" Binding="{Binding MoTa}"/>
-                    <DataGridTextColumn Header="Tinh trang" Width="*" Binding="{Binding TinhTrang}"/>
-                    <DataGridCheckBoxColumn Header="X" Binding="{Binding isChecked}"/>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

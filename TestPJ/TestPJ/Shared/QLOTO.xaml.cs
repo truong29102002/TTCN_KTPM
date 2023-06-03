@@ -143,11 +143,9 @@ namespace TestPJ.Shared
                     xm.IdPt = idPT;
                     xm.Sochongoi = int.Parse(txtSoChoNgoi.Text);
                     xm.Kieudongco = txtDongCo.Text;
-<<<<<<< HEAD
+
                     xm.IdOto = "OTO" + (_db.Otos.Count() + RandomNumberGenerator.GetInt32(1000, 9999)).ToString();
-=======
-                    xm.IdOto = "OTO" + (_db.XeMays.Count() + RandomNumberGenerator.GetInt32(1000, 9999)).ToString();
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
 
                     _db.Add(xm);
                     _db.SaveChanges();
@@ -278,14 +276,9 @@ namespace TestPJ.Shared
                 }
                 #endregion
             }
-<<<<<<< HEAD
+
             #endregion
-=======
-            else
-            {
-                MessageBox.Show("Chua chon xe can xoa!","Thong bao");
-            }
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
         }
 
         private void btnNhapMoi_Click(object sender, RoutedEventArgs e)

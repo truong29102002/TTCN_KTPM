@@ -97,10 +97,6 @@ namespace TestPJ.Shared
                 });
             }
 
-<<<<<<< HEAD
-=======
-            //dtgQLXM.ItemsSource = sql.ToList();
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
             dtgQLXM.ItemsSource = listData;
 
         }

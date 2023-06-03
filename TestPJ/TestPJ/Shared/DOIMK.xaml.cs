@@ -11,17 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-<<<<<<< HEAD
+
 using TestPJ.Models;
-=======
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
 
 namespace TestPJ.Shared
 {
     /// <summary>
     /// Interaction logic for DOIMK.xaml
     /// </summary>
-<<<<<<< HEAD
+
     public partial class DOIMK : Page
     {
         public string idUser { get; set; }
@@ -64,13 +63,6 @@ namespace TestPJ.Shared
             }
             
 
-=======
-    public partial class DOIMK : Window
-    {
-        public DOIMK()
-        {
-            InitializeComponent();
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         }
     }
 }

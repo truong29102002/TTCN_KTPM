@@ -2,11 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TestPJ"
-<<<<<<< HEAD
              StartupUri="Admin/TrangChuAdmin.xaml">
-=======
-             StartupUri="Shared/DOIMK.xaml">
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
     <Application.Resources>
         <Style TargetType="TextBlock" x:Key="HoverStyle">
             <Setter Property="Background" Value="Transparent"/>

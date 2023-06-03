@@ -50,19 +50,14 @@ namespace TestPJ
                 {
                     try
                     {
-<<<<<<< HEAD
+
                         
                         var tk = _context.Accounts.SingleOrDefault(x => x.TaiKhoan == txtTk.Text.Trim().ToLower());
                         if (tk != null)
                         {
                             bool passwordMatch = BCrypt.Net.BCrypt.Verify(passWord, tk.Matkhau);
                             if (tk.Quyen == 1 && passwordMatch)
-=======
-                        var tk = _context.Accounts.SingleOrDefault(x => x.TaiKhoan == txtTk.Text.Trim().ToLower() && x.Matkhau == passWord);
-                        if (tk != null)
-                        {
-                            if (tk.Quyen == 1)
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
                             {
                                 TrangChuAdmin trangChuAdmin = new TrangChuAdmin();
                                 trangChuAdmin.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -70,33 +65,28 @@ namespace TestPJ
                                 trangChuAdmin.Show();
                                 this.Close();
                             }
-<<<<<<< HEAD
+
                             else if (tk.Quyen == 0 && passwordMatch)
-=======
-                            else if (tk.Quyen == 0)
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
                             {
                                 TrangChuNV trangChuNV = new TrangChuNV();
                                 trangChuNV.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                                 trangChuNV.Show();
                                 this.Close();
                             }
-<<<<<<< HEAD
+
                             else
                             {
                                 MessageBox.Show("Sai mat khau", "Thong bao", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
-=======
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
 
                         }
                         else
                         {
-<<<<<<< HEAD
+
                             MessageBox.Show("Tai khoan khong ton tai", "Thong bao", MessageBoxButton.OK, MessageBoxImage.Error);
-=======
-                            MessageBox.Show("Tai khoan or Mat khat khong ton tai", "Thong bao", MessageBoxButton.OK, MessageBoxImage.Error);
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
                         }
                     }
                     catch (Exception ex)

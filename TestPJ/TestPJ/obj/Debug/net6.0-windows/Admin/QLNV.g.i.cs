@@ -173,7 +173,7 @@ namespace TestPJ.Admin {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TestPJ;V1.0.0.0;component/admin/qlnv.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TestPJ;component/admin/qlnv.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Admin\QLNV.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

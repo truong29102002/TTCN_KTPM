@@ -15,13 +15,7 @@ namespace TestPJ.wwwroot
         public int Namsx { get; set; }
         public double GiaBan { get; set; }
         public string MauDT { get; set; }
-<<<<<<< HEAD
-        
         public int CongSuat { get; set; }
-        
-=======
-        public int CongSuat { get; set; }
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
         public string NgayNhap { get; set; }
         public int SLCon { get; set; }
         public string DonVi { get; set; }

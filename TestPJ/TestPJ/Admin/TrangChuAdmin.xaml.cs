@@ -23,18 +23,9 @@ namespace TestPJ.Admin
     public partial class TrangChuAdmin : Window
     {
         public string idUser { get; set; }
-<<<<<<< HEAD
+
         private Dictionary<Button, Brush> buttonColors;
-=======
-        public void ImageTT()
-        {
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(@"D:\TTCNKTPM\TestPJ\TestPJ\wwwroot\Image_TT.jpg");
-            bitmap.EndInit();
-            Img_TT.Source = bitmap;
-        }
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
         public TrangChuAdmin()
         {
             InitializeComponent();
@@ -254,20 +245,7 @@ namespace TestPJ.Admin
                 pair.Key.Background = pair.Value;
             }
         }
-        private void Btn_DoiMK_Click(object sender, RoutedEventArgs e)
-        {
-            //DOIMK dOIMK = new DOIMK();
-            //dOIMK.Show();
-            MessageBox.Show("id user: " + idUser);
-        }
-        private void Btn_DangXuat_Click(object sender, RoutedEventArgs e)
-        {
-            
-            MainWindow mainWindow = new MainWindow();
-            this.Close();
-            mainWindow.Show();
-            
-        }
+      
 
     }
 }

@@ -5,12 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestPJ.Shared"
         mc:Ignorable="d"
-<<<<<<< HEAD
         Height="900" Width="1350" FontSize="14">
-=======
-        Title="Quan ly xe tải" Height="900" Width="1500" FontSize="13"
-        WindowState="Maximized">
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
@@ -25,21 +20,13 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
-<<<<<<< HEAD
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnThem_Click">Thêm</Button>
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnXoa_Click">Xóa</Button>
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe tải</TextBlock>
-=======
-            <Button x:Name="btnThem" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnThem_Click">Them</Button>
-            <Button x:Name="btnSua" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Sua</Button>
-            <Button x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnXoa_Click">Xoa</Button>
-            <Button x:Name="btnNhapMoi" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Nhap Moi</Button>
-        </StackPanel>
-        <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhap Thong Tin Xe Tai</TextBlock>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
         <StackPanel Margin="50,50,50,0" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
             <StackPanel Orientation="Vertical" Width="275" Margin="20,20,0,0">
 
@@ -52,28 +39,19 @@
                     <StackPanel Orientation="Vertical" Grid.ColumnSpan="1">
 
                         <StackPanel Margin="0,10,10,10">
-<<<<<<< HEAD
+
                             <TextBlock Text="Tên xe: "/>
-=======
-                            <TextBlock Text="Ten xe: "/>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
                         </StackPanel>
 
 
                         <StackPanel Margin="0,15,10,10">
-<<<<<<< HEAD
+
                             <TextBlock Text="Hãng sản xuất: "/>
                         </StackPanel>
 
                         <StackPanel Margin="0,15,10,10">
                             <TextBlock Text="Năm sản xuất: "/>
-=======
-                            <TextBlock Text="Hang san xuat: "/>
-                        </StackPanel>
-
-                        <StackPanel Margin="0,15,10,10">
-                            <TextBlock Text="Nam san xuat: "/>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
                         </StackPanel>
 
                     </StackPanel>
@@ -104,7 +82,7 @@
 
                     <StackPanel Grid.Column="0">
                         <StackPanel Margin="10">
-<<<<<<< HEAD
+
                             <TextBlock Text="Giá: "/>
                         </StackPanel>
 
@@ -114,17 +92,7 @@
 
                         <StackPanel Margin="10,13,10,10">
                             <TextBlock Text="Ngày nhập: "/>
-=======
-                            <TextBlock Text="Gia ban: "/>
-                        </StackPanel>
 
-                        <StackPanel Margin="10,13,10,10">
-                            <TextBlock Text="Don vi: "/>
-                        </StackPanel>
-
-                        <StackPanel Margin="10,13,10,10">
-                            <TextBlock Text="Ngay Nhap: "/>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
                         </StackPanel>
 
                     </StackPanel>
@@ -158,19 +126,13 @@
 
                     <StackPanel Grid.Column="0">
                         <StackPanel Margin="10">
-<<<<<<< HEAD
+
                             <TextBlock Text="Trọng tải: " VerticalAlignment="Center"/>
                         </StackPanel>
 
                         <StackPanel Margin="10,13,10,10">
                             <TextBlock Text="Số lượng: " VerticalAlignment="Center"/>
-=======
-                            <TextBlock Text="Trong tai: " VerticalAlignment="Center"/>
-                        </StackPanel>
 
-                        <StackPanel Margin="10,13,10,10">
-                            <TextBlock Text="So luong: " VerticalAlignment="Center"/>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
                         </StackPanel>
 
                         <StackPanel Margin="10,13,10,10">
@@ -200,11 +162,9 @@
 
             <StackPanel Orientation="Vertical" Width="278" Margin="20,20,0,0">
                 <StackPanel Orientation="Horizontal">
-<<<<<<< HEAD
+
                     <TextBlock Text="Mô tả:" Margin="0,0,10,0"/>
-=======
-                    <TextBlock Text="Mo ta:" Margin="0,0,10,0"/>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
                     <TextBox Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
                 </StackPanel>
 
@@ -214,7 +174,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
-<<<<<<< HEAD
+
             <TextBlock Text="Thông tin xe tải" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
             <DataGrid x:Name="dtgXeTai" IsReadOnly="False" CanUserDeleteRows="True" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" Height="500" SelectedCellsChanged="dtgXeTai_SelectedCellsChanged">
                 <DataGrid.Columns>
@@ -231,25 +191,7 @@
                     <DataGridTextColumn Header="Mô tả" Binding="{Binding MoTa}"/>
                     <DataGridTextColumn Header="Tình trạng" Width="*" Binding="{Binding TinhTrang}"/>
                     <DataGridCheckBoxColumn Header=" X " Binding="{Binding isChecked}"/>
-=======
-            <TextBlock Text="Thong tin xe tai" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
-            <DataGrid x:Name="dtgXeTai" IsReadOnly="False" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" Height="500">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ma xe" Binding="{Binding IdMaXe}"/>
-                    <DataGridTextColumn Header="Ma Phuong Tien" Binding="{Binding IdPt}"/>
-                    <DataGridTextColumn Header="Ten xe" Binding="{Binding TenXe}"/>
-                    <DataGridTextColumn Header="Hang xe" Binding="{Binding HangXeDT}"/>
-                    <DataGridTextColumn Header="Nam san xuat" Binding="{Binding Namsx}"/>
-                    <DataGridTextColumn Header="Gia ban (USD)" Binding="{Binding GiaBan}"/>
-                    <DataGridTextColumn Header="Mau" Binding="{Binding MauDT}"/>
-                    <DataGridTextColumn Header="Trong tai" Binding="{Binding TrongTai}"/>
-                    <DataGridTextColumn Header="Ngay nhap" Binding="{Binding NgayNhap}"/>
-                    <DataGridTextColumn Header="So luong con" Binding="{Binding SLCon}"/>
-                    <DataGridTextColumn Header="Don vi" Binding="{Binding DonVi}"/>
-                    <DataGridTextColumn Header="Mo ta" Binding="{Binding MoTa}"/>
-                    <DataGridTextColumn Header="Tinh trang" Width="*" Binding="{Binding TinhTrang}"/>
-                    <DataGridCheckBoxColumn Header="X" x:Name="checkBox_dtg" Visibility="Visible"/>
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

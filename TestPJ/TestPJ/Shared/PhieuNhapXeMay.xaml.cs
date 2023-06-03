@@ -17,11 +17,9 @@ namespace TestPJ.Shared
     /// <summary>
     /// Interaction logic for PhieuNhapXeMay.xaml
     /// </summary>
-<<<<<<< HEAD
+
     public partial class PhieuNhapXeMay : Page
-=======
-    public partial class PhieuNhapXeMay : Window
->>>>>>> e0f0e704d7c98eb9b71afbcae20801961f570929
+
     {
         public PhieuNhapXeMay()
         {
