@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Admin\QLNV.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Admin\TrangChuAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NhanVien\TrangChuNV.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\DOIMK.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\PhieuNhapXeMay.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\QLOTO.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\QLXeMay.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\QLXeTai.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Admin\QLNV.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin\TrangChuAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NhanVien\TrangChuNV.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\DOIMK.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\PhieuNhapXeMay.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\QLOTO.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\QLXeMay.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\QLXeTai.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,128 @@
+﻿<Page x:Class="TestPJ.Admin.QLNV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestPJ.Admin"
+        mc:Ignorable="d"
+        Title="Quan ly nhan vien"
+       Width="1000" Height="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Margin="20,20,0,0" Orientation="Vertical">
+           
+            
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Tên NV:" FontSize="12" VerticalAlignment="Center"></TextBlock>
+                <TextBox x:Name="txtTenNV" VerticalAlignment="Center" Width="150" Margin="10,0,0,0"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Giới tính:" FontSize="12" VerticalAlignment="Center" Margin="0,0,10,0"></TextBlock>
+                <ComboBox x:Name="cbxGender">
+                    <ComboBoxItem IsSelected="True" Content="Nam"/>
+                    <ComboBoxItem Content="Nu"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Tài Khoản:" FontSize="12" VerticalAlignment="Center"></TextBlock>
+                <TextBox x:Name="txtTenTk" VerticalAlignment="Center" Width="100" Margin="10,0,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Cấp quyền:" FontSize="12" VerticalAlignment="Center"></TextBlock>
+                <ComboBox Margin="10 0 0 0" x:Name="cbxQuyen" Width="100" SelectedIndex="0">
+                    <ComboBoxItem>Nhân viên</ComboBoxItem>
+                    <ComboBoxItem>quản lý</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="20,20,0,0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Địa chỉ:" FontSize="12"></TextBlock>
+                <TextBox x:Name="txtDiaChi" Width="150" Margin="45,0,0,0" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Số điện thoại:" FontSize="12"></TextBlock>
+                <TextBox x:Name="txtSodt" Width="150" VerticalAlignment="Top" Margin="10,0,0,0" TextChanged="txtSodt_TextChanged"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Ngày sinh:" FontSize="12"></TextBlock>
+                <DatePicker Width="150"  Margin="25,0,0,0" VerticalAlignment="Top" x:Name="txtNgaySinh"></DatePicker>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Mật khẩu:" FontSize="12" VerticalAlignment="Center"></TextBlock>
+                <TextBox x:Name="txtMatKhau" VerticalAlignment="Center" Width="150" Margin="26,0,0,0"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="2">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Button Style="{StaticResource HoverButtonStyle}" HorizontalAlignment="Left" x:Name="btnThem" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="btnThem_Click">Tạo</Button>
+                <Button Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="btnSua_Click">Cập nhật</Button>
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Button Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="btnXoa_Click">Xóa</Button>
+                <Button Style="{StaticResource HoverButtonStyle}" x:Name="BtnClear" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="BtnClear_Click">Nhập mới</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="50,0,0,0"  Grid.ColumnSpan="2" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Tìm nhân viên:" VerticalAlignment="Center"></TextBlock>
+                <TextBox x:Name="txtTim" Width="150" VerticalAlignment="Center" Margin="20,0,0,0"></TextBox>
+                <Button Style="{StaticResource HoverButtonStyle}" Height="25" Width="50" x:Name="btnTim" Margin="30,0,0,0" VerticalAlignment="Center" Click="btnTim_Click">Tìm</Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+            <DataGrid Margin="50,50,50,50" x:Name="dtgNV" IsReadOnly="True" AutoGenerateColumns="False" Foreground="Red" SelectedCellsChanged="dtgNV_SelectedCellsChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ma NV" Binding="{Binding MaNv}"/>
+                    <DataGridTextColumn Header="Ten NV" Binding="{Binding TenNv}"/>
+                    <DataGridTextColumn Header="Gioi tinh" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="Ngay Sinh" Binding="{Binding NgaySinh}"/>
+                    <DataGridTextColumn Header="Dia chi" Binding="{Binding DiaChiNv}"/>
+                    <DataGridTextColumn Header="Tai Khoan" Binding="{Binding Taikhoan}"/>
+                    <DataGridTextColumn Header="SDT" Binding="{Binding Sodienthoai}"/>
+                    <DataGridTextColumn Header="Chuc vu" Binding="{Binding Quyen}" Width="*"/>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0" Background="BlanchedAlmond" Padding="5">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="12" Text="Tai Khoan:" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock FontSize="12" Foreground="MidnightBlue" Text="{Binding Taikhoan}" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="12" Text="Mat khau:" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock FontSize="12" Foreground="MidnightBlue" Text="{Binding Matkhau}" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="12" Text="Quyen:" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock FontSize="12" Foreground="MidnightBlue" Text="{Binding Quyen}" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+        </StackPanel>
+        
+
+    </Grid>
+</Page>
