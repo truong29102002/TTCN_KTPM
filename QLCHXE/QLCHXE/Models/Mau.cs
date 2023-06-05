@@ -7,12 +7,14 @@ namespace QLCHXE.Models
     {
         public Mau()
         {
+            KhoPhuongTiens = new HashSet<KhoPhuongTien>();
             PhuongTiens = new HashSet<PhuongTien>();
         }
 
         public string Mamau { get; set; } = null!;
         public string? Tenmau { get; set; }
 
+        public virtual ICollection<KhoPhuongTien> KhoPhuongTiens { get; set; }
         public virtual ICollection<PhuongTien> PhuongTiens { get; set; }
     }
 }

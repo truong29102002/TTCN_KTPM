@@ -7,6 +7,7 @@ namespace QLCHXE.Models
     {
         public HangXe()
         {
+            KhoPhuongTiens = new HashSet<KhoPhuongTien>();
             PhuongTiens = new HashSet<PhuongTien>();
         }
 
@@ -14,6 +15,7 @@ namespace QLCHXE.Models
         public string? Tenhanngxe { get; set; }
         public string? Loaixe { get; set; }
 
+        public virtual ICollection<KhoPhuongTien> KhoPhuongTiens { get; set; }
         public virtual ICollection<PhuongTien> PhuongTiens { get; set; }
     }
 }

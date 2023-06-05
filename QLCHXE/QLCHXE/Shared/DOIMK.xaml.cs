@@ -38,21 +38,24 @@ namespace QLCHXE.Shared
                 var query = db.Accounts.SingleOrDefault(x => x.TaiKhoan.Equals(idUser));
                 string newPass = txtMKMOI.Password;
                 string newPass_compare = txtMKMOI_compare.Password;
-                if(txtMKCu.Text.Trim() != query.Matkhau)
+                bool checkHashedPassword = BCrypt.Net.BCrypt.Verify(txtMKCu.Text, query.Matkhau);
+                if(!checkHashedPassword)
                 {
-                    MessageBox.Show("Mat khau cu khong dung!", "Thong bao");
+                    MessageBox.Show("Mật khẩu cũ không đúng!", "Thông báo");
                 }
                 else
                 {
                     if(newPass != newPass_compare)
                     {
-                        MessageBox.Show("Mat khau moi khong khop nhau!", "Thong bao");
+                        MessageBox.Show("Mật khẩu không khớp nhau!", "Thong bao");
                     }
                     else
                     {
-                        query.Matkhau = newPass_compare.Trim();
+                        string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                        string hashPassword = BCrypt.Net.BCrypt.HashPassword(newPass, salt);
+                        query.Matkhau = hashPassword;
                         db.SaveChanges();
-                        MessageBox.Show("Mat khau thay doi thanh cong!", "Thong bao");
+                        MessageBox.Show("Mật khẩu thay đổi thành công!", "Thông báo");
                     }
                 }
             }

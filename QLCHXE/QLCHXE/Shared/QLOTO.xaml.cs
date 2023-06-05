@@ -185,32 +185,20 @@ namespace QLCHXE.Shared
 
                         var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
                         var oto = _db.Otos.SingleOrDefault(i => i.IdPt.Equals(idPT));
-                        var qr = _db.HoaDonChiTiets.SingleOrDefault(i => i.IdPt.Equals(idPT));
+                        
 
-                        if (qr != null && sql != null && oto != null)
-                        {
+                        
                             if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                             {
                                 _db.Remove(oto);
-                                _db.Remove(qr);
+                                
                                 _db.Remove(sql);
                                 _db.SaveChanges();
                                 MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
                                 LoadDtgView();
                             }
 
-                        }
-                        else
-                        {
-                            if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                            {
-                                _db.Remove(oto);
-                                _db.Remove(sql);
-                                _db.SaveChanges();
-                                MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
-                                LoadDtgView();
-                            }
-                        }
+                        
 
 
 
@@ -243,24 +231,15 @@ namespace QLCHXE.Shared
 
                                 var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
                                 var query = _db.Otos.SingleOrDefault(i => i.IdPt.Equals(idPT));
-                                var qr = _db.HoaDonChiTiets.SingleOrDefault(i => i.IdPt.Equals(idPT));
+                                
 
-                                if (qr != null && sql != null && query != null)
-                                {
+                                
                                     _db.Remove(query);
-                                    _db.Remove(qr);
+                                    
                                     _db.Remove(sql);
                                     _db.SaveChanges();
                                     LoadDtgView();
-                                }
-                                else
-                                {
-
-                                    _db.Remove(query);
-                                    _db.Remove(sql);
-                                    _db.SaveChanges();
-                                    LoadDtgView();
-                                }
+                                
                             }
                         }
 

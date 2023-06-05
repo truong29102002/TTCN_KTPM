@@ -7,6 +7,23 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Shared\NhapKhoOTO.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\NhapKhoXeTai.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\NhaTaiTro.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\QuanLyBanXe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\ThongKe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Admin\QLNV.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -22,6 +39,15 @@
     <Page Update="Shared\DOIMK.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Shared\NhapKhoOTO.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\NhapKhoXeTai.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\NhaTaiTro.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Shared\PhieuNhapXeMay.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -32,6 +58,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Shared\QLXeTai.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\QuanLyBanXe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\ThongKe.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

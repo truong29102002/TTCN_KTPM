@@ -19,30 +19,29 @@ namespace QLCHXE.Models
         public virtual DbSet<Account> Accounts { get; set; } = null!;
         public virtual DbSet<GiaThue> GiaThues { get; set; } = null!;
         public virtual DbSet<HangXe> HangXes { get; set; } = null!;
-        public virtual DbSet<HoaDon> HoaDons { get; set; } = null!;
-        public virtual DbSet<HoaDonChiTiet> HoaDonChiTiets { get; set; } = null!;
-        public virtual DbSet<HopDongThue> HopDongThues { get; set; } = null!;
-        public virtual DbSet<HopDongThueChiTiet> HopDongThueChiTiets { get; set; } = null!;
+        public virtual DbSet<Kho> Khos { get; set; } = null!;
+        public virtual DbSet<KhoPhuongTien> KhoPhuongTiens { get; set; } = null!;
         public virtual DbSet<Mau> Maus { get; set; } = null!;
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; } = null!;
         public virtual DbSet<NhanVien> NhanViens { get; set; } = null!;
         public virtual DbSet<Oto> Otos { get; set; } = null!;
-        public virtual DbSet<PhieuNhapChiTiet> PhieuNhapChiTiets { get; set; } = null!;
-        public virtual DbSet<Phieunhap> Phieunhaps { get; set; } = null!;
+        public virtual DbSet<OtoKho> OtoKhos { get; set; } = null!;
         public virtual DbSet<PhuongTien> PhuongTiens { get; set; } = null!;
         public virtual DbSet<Test> Tests { get; set; } = null!;
         public virtual DbSet<ThongTinCongTy> ThongTinCongTies { get; set; } = null!;
         public virtual DbSet<ThongTinKhachHang> ThongTinKhachHangs { get; set; } = null!;
         public virtual DbSet<TrangThaiThue> TrangThaiThues { get; set; } = null!;
         public virtual DbSet<XeMay> XeMays { get; set; } = null!;
+        public virtual DbSet<XeMayKho> XeMayKhos { get; set; } = null!;
         public virtual DbSet<XeTai> XeTais { get; set; } = null!;
+        public virtual DbSet<XeTaiKho> XeTaiKhos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=MSI\\SQLEXPRESS;Initial Catalog=QLCHXe;Persist Security Info=True;User ID=sa;Password=12345678;Encrypt=True; TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Data Source=MSI\\SQLEXPRESS;Initial Catalog=QLCHXe;Persist Security Info=True;User ID=sa;Password=12345678;Encrypt=True;TrustServerCertificate=True");
             }
         }
 
@@ -56,7 +55,7 @@ namespace QLCHXE.Models
 
                 entity.Property(e => e.TaiKhoan).HasMaxLength(50);
 
-                entity.Property(e => e.Matkhau).HasMaxLength(50);
+                entity.Property(e => e.Matkhau).HasMaxLength(100);
             });
 
             modelBuilder.Entity<GiaThue>(entity =>
@@ -83,134 +82,82 @@ namespace QLCHXE.Models
                 entity.Property(e => e.Tenhanngxe).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<HoaDon>(entity =>
+            modelBuilder.Entity<Kho>(entity =>
             {
-                entity.HasKey(e => e.MaHd);
+                entity.ToTable("Kho");
 
-                entity.ToTable("HoaDon");
-
-                entity.Property(e => e.MaHd)
+                entity.Property(e => e.Id)
                     .HasMaxLength(10)
-                    .HasColumnName("MaHD");
+                    .HasColumnName("id")
+                    .IsFixedLength();
 
-                entity.Property(e => e.MaKh)
+                entity.Property(e => e.CreateAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("createAt");
+
+                entity.Property(e => e.MaNcc)
                     .HasMaxLength(10)
-                    .HasColumnName("MaKH");
+                    .HasColumnName("MaNCC");
 
-                entity.Property(e => e.MaNv)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaNV");
+                entity.Property(e => e.NhanVienThem).HasMaxLength(250);
 
-                entity.Property(e => e.Ngaylap).HasColumnType("date");
+                entity.Property(e => e.UpdateAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("updateAt");
 
-                entity.HasOne(d => d.MaKhNavigation)
-                    .WithMany(p => p.HoaDons)
-                    .HasForeignKey(d => d.MaKh)
-                    .HasConstraintName("FK_HoaDon_ThongTinKhachHang");
-
-                entity.HasOne(d => d.MaNvNavigation)
-                    .WithMany(p => p.HoaDons)
-                    .HasForeignKey(d => d.MaNv)
-                    .HasConstraintName("FK_HoaDon_NhanVien");
+                entity.HasOne(d => d.MaNccNavigation)
+                    .WithMany(p => p.Khos)
+                    .HasForeignKey(d => d.MaNcc)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_Kho_NhaCungCap");
             });
 
-            modelBuilder.Entity<HoaDonChiTiet>(entity =>
+            modelBuilder.Entity<KhoPhuongTien>(entity =>
             {
-                entity.HasKey(e => new { e.MaHd, e.IdPt });
+                entity.HasKey(e => e.IdPt);
 
-                entity.ToTable("HoaDonChiTiet");
-
-                entity.Property(e => e.MaHd)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaHD");
+                entity.ToTable("Kho_PhuongTien");
 
                 entity.Property(e => e.IdPt)
                     .HasMaxLength(50)
-                    .HasColumnName("IdPT");
+                    .HasColumnName("idPT");
 
-                entity.HasOne(d => d.IdPtNavigation)
-                    .WithMany(p => p.HoaDonChiTiets)
-                    .HasForeignKey(d => d.IdPt)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_HoaDonChiTiet_PhuongTien");
+                entity.Property(e => e.Description).HasMaxLength(200);
 
-                entity.HasOne(d => d.MaHdNavigation)
-                    .WithMany(p => p.HoaDonChiTiets)
-                    .HasForeignKey(d => d.MaHd)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_HoaDonChiTiet_HoaDon");
-            });
+                entity.Property(e => e.DonVi).HasMaxLength(10);
 
-            modelBuilder.Entity<HopDongThue>(entity =>
-            {
-                entity.HasKey(e => e.MaHdthue);
-
-                entity.ToTable("HopDongThue");
-
-                entity.Property(e => e.MaHdthue)
+                entity.Property(e => e.IdHangXe)
                     .HasMaxLength(10)
-                    .HasColumnName("MaHDThue");
+                    .HasColumnName("idHangXe");
 
-                entity.Property(e => e.IdPt)
-                    .HasMaxLength(50)
-                    .HasColumnName("IdPT");
-
-                entity.Property(e => e.MaNv)
+                entity.Property(e => e.IdKho)
                     .HasMaxLength(10)
-                    .HasColumnName("MaNV");
+                    .HasColumnName("idKho")
+                    .IsFixedLength();
 
-                entity.Property(e => e.Makh)
+                entity.Property(e => e.IdMau)
                     .HasMaxLength(10)
-                    .HasColumnName("makh");
+                    .HasColumnName("idMau");
 
-                entity.Property(e => e.Mathue).HasMaxLength(10);
+                entity.Property(e => e.TenXe).HasMaxLength(100);
 
-                entity.HasOne(d => d.IdPtNavigation)
-                    .WithMany(p => p.HopDongThues)
-                    .HasForeignKey(d => d.IdPt)
-                    .HasConstraintName("FK_HopDongThue_PhuongTien");
+                entity.HasOne(d => d.IdHangXeNavigation)
+                    .WithMany(p => p.KhoPhuongTiens)
+                    .HasForeignKey(d => d.IdHangXe)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_Kho_PhuongTien_HangXe");
 
-                entity.HasOne(d => d.MaNvNavigation)
-                    .WithMany(p => p.HopDongThues)
-                    .HasForeignKey(d => d.MaNv)
-                    .HasConstraintName("FK_HopDongThue_NhanVien");
+                entity.HasOne(d => d.IdKhoNavigation)
+                    .WithMany(p => p.KhoPhuongTiens)
+                    .HasForeignKey(d => d.IdKho)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_Kho_PhuongTien_Kho");
 
-                entity.HasOne(d => d.MakhNavigation)
-                    .WithMany(p => p.HopDongThues)
-                    .HasForeignKey(d => d.Makh)
-                    .HasConstraintName("FK_HopDongThue_ThongTinKhachHang");
-
-                entity.HasOne(d => d.MathueNavigation)
-                    .WithMany(p => p.HopDongThues)
-                    .HasForeignKey(d => d.Mathue)
-                    .HasConstraintName("FK_HopDongThue_TrangThaiThue");
-            });
-
-            modelBuilder.Entity<HopDongThueChiTiet>(entity =>
-            {
-                entity.HasKey(e => new { e.MaHdthue, e.IdPt });
-
-                entity.ToTable("HopDongThueChiTiet");
-
-                entity.Property(e => e.MaHdthue)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaHDThue");
-
-                entity.Property(e => e.IdPt)
-                    .HasMaxLength(50)
-                    .HasColumnName("IdPT");
-
-                entity.HasOne(d => d.IdPtNavigation)
-                    .WithMany(p => p.HopDongThueChiTiets)
-                    .HasForeignKey(d => d.IdPt)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_HopDongThueChiTiet_PhuongTien");
-
-                entity.HasOne(d => d.MaHdthueNavigation)
-                    .WithMany(p => p.HopDongThueChiTiets)
-                    .HasForeignKey(d => d.MaHdthue)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_HopDongThueChiTiet_HopDongThue");
+                entity.HasOne(d => d.IdMauNavigation)
+                    .WithMany(p => p.KhoPhuongTiens)
+                    .HasForeignKey(d => d.IdMau)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_Kho_PhuongTien_Mau");
             });
 
             modelBuilder.Entity<Mau>(entity =>
@@ -237,10 +184,6 @@ namespace QLCHXE.Models
                 entity.Property(e => e.DiaChiNcc)
                     .HasMaxLength(200)
                     .HasColumnName("DiaChiNCC");
-
-                entity.Property(e => e.MaStncc)
-                    .HasMaxLength(20)
-                    .HasColumnName("MaSTNCC");
 
                 entity.Property(e => e.SoDtncc)
                     .HasMaxLength(10)
@@ -282,6 +225,7 @@ namespace QLCHXE.Models
                 entity.HasOne(d => d.TaikhoanNavigation)
                     .WithMany(p => p.NhanViens)
                     .HasForeignKey(d => d.Taikhoan)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_NhanVien_Account");
             });
 
@@ -305,60 +249,27 @@ namespace QLCHXE.Models
                     .HasConstraintName("FK_Oto_PhuongTien");
             });
 
-            modelBuilder.Entity<PhieuNhapChiTiet>(entity =>
+            modelBuilder.Entity<OtoKho>(entity =>
             {
-                entity.HasKey(e => new { e.Maphieunhap, e.IdPt });
+                entity.HasKey(e => e.IdOtoKho);
 
-                entity.ToTable("PhieuNhapChiTiet");
+                entity.ToTable("Oto_kho");
 
-                entity.Property(e => e.Maphieunhap).HasMaxLength(10);
+                entity.Property(e => e.IdOtoKho)
+                    .HasMaxLength(10)
+                    .HasColumnName("idOtoKho");
 
-                entity.Property(e => e.IdPt)
+                entity.Property(e => e.IdPtkho)
                     .HasMaxLength(50)
-                    .HasColumnName("IdPT");
+                    .HasColumnName("idPTKho");
 
-                entity.Property(e => e.GhiChu).HasMaxLength(200);
+                entity.Property(e => e.KieuDongCo).HasMaxLength(20);
 
-                entity.HasOne(d => d.IdPtNavigation)
-                    .WithMany(p => p.PhieuNhapChiTiets)
-                    .HasForeignKey(d => d.IdPt)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PhieuNhapChiTiet_PhuongTien");
-
-                entity.HasOne(d => d.MaphieunhapNavigation)
-                    .WithMany(p => p.PhieuNhapChiTiets)
-                    .HasForeignKey(d => d.Maphieunhap)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PhieuNhapChiTiet_Phieunhap");
-            });
-
-            modelBuilder.Entity<Phieunhap>(entity =>
-            {
-                entity.HasKey(e => e.Maphieunhap);
-
-                entity.ToTable("Phieunhap");
-
-                entity.Property(e => e.Maphieunhap).HasMaxLength(10);
-
-                entity.Property(e => e.MaNcc)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaNCC");
-
-                entity.Property(e => e.MaNv)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaNV");
-
-                entity.Property(e => e.Ngaynhap).HasColumnType("date");
-
-                entity.HasOne(d => d.MaNccNavigation)
-                    .WithMany(p => p.Phieunhaps)
-                    .HasForeignKey(d => d.MaNcc)
-                    .HasConstraintName("FK_Phieunhap_NhaCungCap");
-
-                entity.HasOne(d => d.MaNvNavigation)
-                    .WithMany(p => p.Phieunhaps)
-                    .HasForeignKey(d => d.MaNv)
-                    .HasConstraintName("FK_Phieunhap_NhanVien");
+                entity.HasOne(d => d.IdPtkhoNavigation)
+                    .WithMany(p => p.OtoKhos)
+                    .HasForeignKey(d => d.IdPtkho)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_Oto_kho_Kho_PhuongTien");
             });
 
             modelBuilder.Entity<PhuongTien>(entity =>
@@ -489,6 +400,27 @@ namespace QLCHXE.Models
                     .HasConstraintName("FK_XeMay_PhuongTien");
             });
 
+            modelBuilder.Entity<XeMayKho>(entity =>
+            {
+                entity.HasKey(e => e.IdXmkho);
+
+                entity.ToTable("XeMay_Kho");
+
+                entity.Property(e => e.IdXmkho)
+                    .HasMaxLength(10)
+                    .HasColumnName("idXMKho");
+
+                entity.Property(e => e.IdPt)
+                    .HasMaxLength(50)
+                    .HasColumnName("idPT");
+
+                entity.HasOne(d => d.IdPtNavigation)
+                    .WithMany(p => p.XeMayKhos)
+                    .HasForeignKey(d => d.IdPt)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_XeMay_Kho_Kho_PhuongTien");
+            });
+
             modelBuilder.Entity<XeTai>(entity =>
             {
                 entity.HasKey(e => e.XeTai1);
@@ -507,6 +439,27 @@ namespace QLCHXE.Models
                     .WithMany(p => p.XeTais)
                     .HasForeignKey(d => d.IdPt)
                     .HasConstraintName("FK_XeTai_PhuongTien");
+            });
+
+            modelBuilder.Entity<XeTaiKho>(entity =>
+            {
+                entity.HasKey(e => e.IdXeTaiKho);
+
+                entity.ToTable("XeTai_Kho");
+
+                entity.Property(e => e.IdXeTaiKho)
+                    .HasMaxLength(10)
+                    .HasColumnName("idXeTaiKho");
+
+                entity.Property(e => e.IdPt)
+                    .HasMaxLength(50)
+                    .HasColumnName("idPT");
+
+                entity.HasOne(d => d.IdPtNavigation)
+                    .WithMany(p => p.XeTaiKhos)
+                    .HasForeignKey(d => d.IdPt)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_XeTai_Kho_Kho_PhuongTien");
             });
 
             OnModelCreatingPartial(modelBuilder);

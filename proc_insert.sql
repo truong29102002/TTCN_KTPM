@@ -1,6 +1,6 @@
 -- insert table
 create proc pr_insertNVAC(@manv nvarchar(10), @hoTen nvarchar(50), @ngaysinh date, @diachi nvarchar(200),
-@sodt nvarchar(10), @taiKhoan nvarchar(50), @gender nvarchar(50), @matkhau nvarchar(50), @quyen int)
+@sodt nvarchar(10), @taiKhoan nvarchar(50), @gender nvarchar(50), @matkhau nvarchar(100), @quyen int)
 as
 Begin
 	insert into Account values(@taiKhoan, @matkhau, @quyen)
@@ -12,7 +12,7 @@ Begin
 
  -- update table
  create proc pr_UpdatetNVAC(@manv nvarchar(10), @hoTen nvarchar(50), @ngaysinh date, @diachi nvarchar(200),
-@sodt nvarchar(10), @taiKhoan nvarchar(50), @gender nvarchar(50), @matkhau nvarchar(50), @quyen int)
+@sodt nvarchar(10), @taiKhoan nvarchar(50), @gender nvarchar(50), @matkhau nvarchar(100), @quyen int)
 as
 Begin
 	Update Account set TaiKhoan = @taiKhoan, Matkhau = @matkhau, Quyen=@quyen Where @taiKhoan = TaiKhoan
@@ -36,4 +36,4 @@ Begin
 
  Drop procedure pr_DeleteNVAC
 
- Execute pr_DeleteNVAC 'a394bf5c-4'
+ Execute pr_DeleteNVAC '3'

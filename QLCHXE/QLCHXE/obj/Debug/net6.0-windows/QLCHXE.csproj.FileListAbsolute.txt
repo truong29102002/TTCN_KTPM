@@ -74,3 +74,13 @@ C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared
 C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\QLOTO.baml
 C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\QLXeMay.baml
 C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\QLXeTai.baml
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\NhapKhoOTO.g.cs
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\NhapKhoXeTai.g.cs
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\QuanLyBanXe.g.cs
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\ThongKe.g.cs
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\NhapKhoOTO.baml
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\NhapKhoXeTai.baml
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\QuanLyBanXe.baml
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\ThongKe.baml
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\NhaTaiTro.g.cs
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Shared\NhaTaiTro.baml

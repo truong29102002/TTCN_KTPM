@@ -101,7 +101,7 @@ namespace QLCHXE.Admin
         }
         private void Btn_DoiMK_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new DOIMK());
+            mainFrame.Navigate(new DOIMK { idUser = this.idUser});
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -155,6 +155,7 @@ namespace QLCHXE.Admin
 
         private void Btn_NhapXeMay_Click(object sender, RoutedEventArgs e)
         {
+            mainFrame.Navigate(new PhieuNhapXeMay());
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -172,6 +173,7 @@ namespace QLCHXE.Admin
 
         private void Btn_NhapOto_Click(object sender, RoutedEventArgs e)
         {
+            mainFrame.Navigate(new NhapKhoOTO());
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -189,6 +191,7 @@ namespace QLCHXE.Admin
 
         private void Btn_NhapXeTai_Click(object sender, RoutedEventArgs e)
         {
+            mainFrame.Navigate(new NhapKhoXeTai());
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -206,6 +209,7 @@ namespace QLCHXE.Admin
 
         private void Btn_ThongKeDT_Click(object sender, RoutedEventArgs e)
         {
+            //mainFrame.Navigate(new ThongKe());
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -223,6 +227,7 @@ namespace QLCHXE.Admin
 
         private void Btn_QuanLyBanXe_Click(object sender, RoutedEventArgs e)
         {
+            mainFrame.Navigate(new NhaTaiTro());
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {

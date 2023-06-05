@@ -75,7 +75,7 @@ namespace QLCHXE.Shared
                           DonVi = i.Donvi,
                           MoTa = i.Mota,
                           TinhTrang = (i.Soluong > 0) ? "Con hang" : "Het hang",
-                          
+
                       };
 
 
@@ -236,36 +236,18 @@ namespace QLCHXE.Shared
 
                         var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
                         var query = _db.XeTais.SingleOrDefault(i => i.IdPt.Equals(idPT));
-                        var qr = _db.HoaDonChiTiets.SingleOrDefault(i => i.IdPt.Equals(idPT));
 
-                        if (qr != null && sql != null && query != null)
+
+
+                        if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {
-                            if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                            {
-                                _db.Remove(query);
-                                _db.Remove(qr);
-                                _db.Remove(sql);
-                                _db.SaveChanges();
-                                LoadDtgView();
-                                MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
-                                LoadDtgView();
-                            }
+                            _db.Remove(query);
+                            _db.Remove(sql);
+                            _db.SaveChanges();
+                            LoadDtgView();
+                            MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
+                            LoadDtgView();
                         }
-                        else
-                        {
-                            if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                            {
-                                _db.Remove(query);
-                                _db.Remove(sql);
-                                _db.SaveChanges();
-                                MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
-                                LoadDtgView();
-                            }
-                        }
-
-
-
-
                     }
                     catch (Exception ex)
                     {
@@ -294,32 +276,17 @@ namespace QLCHXE.Shared
 
                                 var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
                                 var query = _db.XeTais.SingleOrDefault(i => i.IdPt.Equals(idPT));
-                                var qr = _db.HoaDonChiTiets.SingleOrDefault(i => i.IdPt.Equals(idPT));
+                                _db.Remove(query);
+                                _db.Remove(sql);
+                                _db.SaveChanges();
+                                LoadDtgView();
 
-                                if (qr != null && sql != null && query != null)
-                                {
-                                    _db.Remove(query);
-                                    _db.Remove(qr);
-                                    _db.Remove(sql);
-                                    _db.SaveChanges();
-                                    LoadDtgView();
-                                }
-                                else
-                                {
-
-                                    _db.Remove(query);
-                                    _db.Remove(sql);
-                                    _db.SaveChanges();
-                                    LoadDtgView();
-                                }
                             }
+
+                            MessageBox.Show("Da xoa tat ca phuong tien duoc chon", "Thong bao");
                         }
 
-                        MessageBox.Show("Da xoa tat ca phuong tien duoc chon", "Thong bao");
                     }
-
-
-
                 }
                 catch (Exception ex)
                 {

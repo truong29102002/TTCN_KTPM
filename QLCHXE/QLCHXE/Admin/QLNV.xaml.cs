@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using QLCHXE.Models;
+using BCrypt.Net;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace QLCHXE.Admin
@@ -43,7 +44,7 @@ namespace QLCHXE.Admin
                          Sodienthoai = i.Sodienthoai,
                          Taikhoan = i.Taikhoan,
                          Matkhau = j.Matkhau,
-                         Quyen = (j.Quyen ==0 ) ? "Nhan vien" : "Quan li"
+                         Quyen = (j.Quyen ==0 ) ? "Nhân viên" : "Quản lý"
                      };
             var data = nv.ToList();
 
@@ -62,7 +63,7 @@ namespace QLCHXE.Admin
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-            // Generate a salt for bcrypt
+            
             string salt = BCrypt.Net.BCrypt.GenerateSalt();
             string idnv = "NV" + (db.NhanViens.Count() + RandomNumberGenerator.GetInt32(1000, 9999)).ToString();
             if (String.IsNullOrEmpty(txtDiaChi.Text) || String.IsNullOrEmpty(txtNgaySinh.Text) || String.IsNullOrEmpty(txtTenTk.Text) || String.IsNullOrEmpty(txtSodt.Text) || String.IsNullOrEmpty(txtMatKhau.Text))
@@ -102,7 +103,7 @@ namespace QLCHXE.Admin
                             );
                         
                         LoadDataGrid();
-                        MessageBox.Show("Them thanh cong nhan vien moi ", "thong bao", MessageBoxButton.OK);
+                        MessageBox.Show("Them thanh cong nhan vien moi", "thong bao", MessageBoxButton.OK);
 
                     }
                 }
@@ -117,6 +118,7 @@ namespace QLCHXE.Admin
      
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
+            
             if (String.IsNullOrEmpty(txtTenNV.Text) || String.IsNullOrEmpty(txtDiaChi.Text) || String.IsNullOrEmpty(txtNgaySinh.Text) || String.IsNullOrEmpty(txtTenTk.Text) || String.IsNullOrEmpty(txtSodt.Text) || String.IsNullOrEmpty(txtMatKhau.Text))
             {
                 MessageBox.Show("Co truong chua nhap dua lieu");
@@ -129,20 +131,24 @@ namespace QLCHXE.Admin
                     var tksql = db.Accounts.SingleOrDefault(y => y.TaiKhoan == txtTenTk.Text);
                     if (manvsql != null && tksql != null && manvsql.Taikhoan == tksql.TaiKhoan)
                     {
+                        string salt = tksql.Matkhau.Substring(0, 29);
+                        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(txtMatKhau.Text, salt);
                         string day = txtNgaySinh.SelectedDate.Value.Day.ToString();
                         string month = txtNgaySinh.SelectedDate.Value.Month.ToString();
                         string year = txtNgaySinh.SelectedDate.Value.Year.ToString();
                         string ngaySinh = year + "-" + month + "-" + day;
+                        int quyen = (cbxQuyen.Text == "Nhân viên") ? 0 : 1;
                         SqlParameter paramVarchar = new SqlParameter("@ngaysinh", SqlDbType.Date);
                         paramVarchar.Value = ngaySinh;
-                        var result = db.Database.ExecuteSqlRaw("Exec pr_UpdatetNVAC @manv,@hoTen, @ngaysinh, @diachi, @sodt, @taiKhoan, @gender, @matkhau, 0", new SqlParameter("@manv", manvsql.MaNv),
+                        var result = db.Database.ExecuteSqlRaw("Exec pr_UpdatetNVAC @manv,@hoTen, @ngaysinh, @diachi, @sodt, @taiKhoan, @gender, @matkhau, @quyen", new SqlParameter("@manv", manvsql.MaNv),
                             new SqlParameter("@hoTen", txtTenNV.Text),
                             paramVarchar,
                             new SqlParameter("@diachi", txtDiaChi.Text),
                             new SqlParameter("@sodt", txtSodt.Text),
                             new SqlParameter("@taiKhoan", txtTenTk.Text),
                             new SqlParameter("@gender", cbxGender.Text),
-                            new SqlParameter("@matkhau", txtMatKhau.Text)
+                            new SqlParameter("@matkhau", hashedPassword),
+                            new SqlParameter("@quyen", quyen)
                             );
                         LoadDataGrid();
                         MessageBox.Show("Cap nhat thanh cong thong tin nhan vien co ma: " + manvsql.MaNv, "thong bao", MessageBoxButton.OK);
@@ -204,12 +210,12 @@ namespace QLCHXE.Admin
             if (System.Text.RegularExpressions.Regex.IsMatch(txtSodt.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only phone numbers .");
-                txtSodt.Text = "";
+                
             }
             if (txtSodt.Text.Length > 10)
             {
                 MessageBox.Show("Please enter only 10 digits.");
-                txtSodt.Text = "";
+                
             }
         }
 
@@ -229,6 +235,7 @@ namespace QLCHXE.Admin
                     txtTenTk.Text = propertyInfos[6].GetValue(dtgNV.SelectedValue).ToString();
                     txtSodt.Text = propertyInfos[5].GetValue(dtgNV.SelectedValue).ToString();
                     txtMatKhau.Text = propertyInfos[7].GetValue(dtgNV.SelectedValue).ToString();
+                    cbxQuyen.Text = propertyInfos[8].GetValue(dtgNV.SelectedValue).ToString();
 
                 }
                 catch (Exception ex)
@@ -249,6 +256,7 @@ namespace QLCHXE.Admin
             txtTenNV.Text = "";
             txtTenTk.Text = "";
             cbxGender.SelectedIndex = 0;
+            LoadDataGrid();
         }
 
         private void btnTim_Click(object sender, RoutedEventArgs e)

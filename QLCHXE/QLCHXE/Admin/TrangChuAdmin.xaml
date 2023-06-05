@@ -45,8 +45,8 @@
                     <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Nhập xe máy</Button>
                     <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Nhập ô tô</Button>
                     <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Nhập xe tải</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_ThongKeDT" Click="Btn_ThongKeDT_Click">Doanh Thu</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Quản lý bán xe</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_ThongKeDT" Click="Btn_ThongKeDT_Click">Thống kê</Button>
+                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Nhà tài trợ</Button>
                     <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" Margin="0,10,0,0">Đổi mật khẩu</Button>
                     <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
                 </StackPanel>

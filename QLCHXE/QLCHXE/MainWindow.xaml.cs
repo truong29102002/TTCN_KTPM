@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QLCHXE.Admin;
 using QLCHXE.NhanVien;
-
+using BCrypt.Net;
 namespace QLCHXE
 {
     /// <summary>
@@ -36,8 +36,7 @@ namespace QLCHXE
         {
             try
             {
-                string passWord = txtMK.Password;
-                if (string.IsNullOrEmpty(passWord) || string.IsNullOrEmpty(txtTk.Text))
+                if (string.IsNullOrEmpty(txtMK.Password) || string.IsNullOrEmpty(txtTk.Text))
                 {
                     MessageBox.Show("Tk or Password cant be empty or null", "Thong bao", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -46,12 +45,13 @@ namespace QLCHXE
                     try
                     {
 
-
-                        var tk = _context.Accounts.SingleOrDefault(x => x.TaiKhoan == txtTk.Text.Trim().ToLower());
+                        string passWord = txtMK.Password.Trim();
+                        var tk = _context.Accounts.FirstOrDefault(x => x.TaiKhoan == txtTk.Text.Trim().ToLower());
                         if (tk != null)
                         {
-                            bool passwordMatch = BCrypt.Net.BCrypt.Verify(passWord, tk.Matkhau);
-                            if (tk.Quyen == 1 && passwordMatch)
+                            bool checkHashedPassword = BCrypt.Net.BCrypt.Verify(passWord, tk.Matkhau);
+
+                            if (tk.Quyen == 1 && checkHashedPassword)
 
                             {
                                 TrangChuAdmin trangChuAdmin = new TrangChuAdmin();
@@ -61,7 +61,7 @@ namespace QLCHXE
                                 this.Close();
                             }
 
-                            else if (tk.Quyen == 0 && passwordMatch)
+                            else if (tk.Quyen == 0 && checkHashedPassword)
 
                             {
                                 TrangChuNV trangChuNV = new TrangChuNV();
@@ -72,7 +72,7 @@ namespace QLCHXE
 
                             else
                             {
-                                MessageBox.Show("Sai mat khau", "Thong bao", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show("Sai mật khẩu", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
 
 
@@ -83,6 +83,7 @@ namespace QLCHXE
                             MessageBox.Show("Tai khoan khong ton tai", "Thong bao", MessageBoxButton.OK, MessageBoxImage.Error);
 
                         }
+
                     }
                     catch (Exception ex)
                     {

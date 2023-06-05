@@ -183,37 +183,18 @@ namespace QLCHXE.Shared
 
                         var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
                         var query = _db.XeMays.SingleOrDefault(i => i.IdPt.Equals(idPT));
-                        var qr = _db.HoaDonChiTiets.SingleOrDefault(i => i.IdPt.Equals(idPT));
 
-                        if (qr != null && sql != null && query != null)
+
+
+                        if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {
-                            if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                            {
-                                _db.Remove(query);
-                                _db.Remove(qr);
-                                _db.Remove(sql);
-                                _db.SaveChanges();
-                                LoadDtgView();
-                                MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
-                                LoadDtgView();
-                            }
-
+                            _db.Remove(query);
+                            _db.Remove(sql);
+                            _db.SaveChanges();
+                            LoadDtgView();
+                            MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
+                            LoadDtgView();
                         }
-                        else
-                        {
-                            if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                            {
-                                _db.Remove(query);
-                                _db.Remove(sql);
-                                _db.SaveChanges();
-                                MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
-                                LoadDtgView();
-                            }
-                        }
-
-
-
-
                     }
                     catch (Exception ex)
                     {
@@ -230,7 +211,7 @@ namespace QLCHXE.Shared
                 #region delete muliple
                 try
                 {
-                    if(MessageBox.Show("Xac nhan xoa tat ca cac phuong tien da chon!","Thong bao", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    if (MessageBox.Show("Xac nhan xoa tat ca cac phuong tien da chon!", "Thong bao", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
                         foreach (var item in listData)
                         {
@@ -242,30 +223,20 @@ namespace QLCHXE.Shared
 
                                 var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
                                 var query = _db.XeMays.SingleOrDefault(i => i.IdPt.Equals(idPT));
-                                var qr = _db.HoaDonChiTiets.SingleOrDefault(i => i.IdPt.Equals(idPT));
+                                
 
-                                if (qr != null && sql != null && query != null)
-                                {
-                                    _db.Remove(query);
-                                    _db.Remove(qr);
-                                    _db.Remove(sql);
-                                    _db.SaveChanges();
-                                    LoadDtgView();
-                                }
-                                else
-                                {
-
+                                
                                     _db.Remove(query);
                                     _db.Remove(sql);
                                     _db.SaveChanges();
                                     LoadDtgView();
-                                }
+                                
                             }
                         }
 
                         MessageBox.Show("Da xoa tat ca phuong tien duoc chon", "Thong bao");
                     }
-                    
+
 
 
                 }

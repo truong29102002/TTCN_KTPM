@@ -7,11 +7,7 @@ namespace QLCHXE.Models
     {
         public PhuongTien()
         {
-            HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
-            HopDongThueChiTiets = new HashSet<HopDongThueChiTiet>();
-            HopDongThues = new HashSet<HopDongThue>();
             Otos = new HashSet<Oto>();
-            PhieuNhapChiTiets = new HashSet<PhieuNhapChiTiet>();
             XeMays = new HashSet<XeMay>();
             XeTais = new HashSet<XeTai>();
         }
@@ -29,11 +25,7 @@ namespace QLCHXE.Models
 
         public virtual HangXe? IdHangXeNavigation { get; set; }
         public virtual Mau? MamauNavigation { get; set; }
-        public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
-        public virtual ICollection<HopDongThueChiTiet> HopDongThueChiTiets { get; set; }
-        public virtual ICollection<HopDongThue> HopDongThues { get; set; }
         public virtual ICollection<Oto> Otos { get; set; }
-        public virtual ICollection<PhieuNhapChiTiet> PhieuNhapChiTiets { get; set; }
         public virtual ICollection<XeMay> XeMays { get; set; }
         public virtual ICollection<XeTai> XeTais { get; set; }
     }

@@ -41,7 +41,7 @@
                 <TextBlock Text="Cấp quyền:" FontSize="12" VerticalAlignment="Center"></TextBlock>
                 <ComboBox Margin="10 0 0 0" x:Name="cbxQuyen" Width="100" SelectedIndex="0">
                     <ComboBoxItem>Nhân viên</ComboBoxItem>
-                    <ComboBoxItem>quản lý</ComboBoxItem>
+                    <ComboBoxItem>Quản lý</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
         </StackPanel>
@@ -89,16 +89,16 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
-            <DataGrid Margin="50,50,50,50" x:Name="dtgNV" IsReadOnly="True" AutoGenerateColumns="False" Foreground="Red" SelectedCellsChanged="dtgNV_SelectedCellsChanged">
+            <DataGrid Height="500" Margin="50,50,50,50" x:Name="dtgNV" IsReadOnly="True" AutoGenerateColumns="False" Foreground="Red" SelectedCellsChanged="dtgNV_SelectedCellsChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ma NV" Binding="{Binding MaNv}"/>
-                    <DataGridTextColumn Header="Ten NV" Binding="{Binding TenNv}"/>
-                    <DataGridTextColumn Header="Gioi tinh" Binding="{Binding Gender}"/>
-                    <DataGridTextColumn Header="Ngay Sinh" Binding="{Binding NgaySinh}"/>
-                    <DataGridTextColumn Header="Dia chi" Binding="{Binding DiaChiNv}"/>
-                    <DataGridTextColumn Header="Tai Khoan" Binding="{Binding Taikhoan}"/>
-                    <DataGridTextColumn Header="SDT" Binding="{Binding Sodienthoai}"/>
-                    <DataGridTextColumn Header="Chuc vu" Binding="{Binding Quyen}" Width="*"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding MaNv}"/>
+                    <DataGridTextColumn Header="Tên nhân viên" Binding="{Binding TenNv}"/>
+                    <DataGridTextColumn Header="Giới tính" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="Ngày sinh" Binding="{Binding NgaySinh}"/>
+                    <DataGridTextColumn Header="Địa chỉ" Binding="{Binding DiaChiNv}"/>
+                    <DataGridTextColumn Header="Tài khoản" Binding="{Binding Taikhoan}"/>
+                    <DataGridTextColumn Header="Số điện thoại" Binding="{Binding Sodienthoai}"/>
+                    <DataGridTextColumn Header="Chức vụ" Binding="{Binding Quyen}" Width="*"/>
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>
                     <DataTemplate>
