@@ -55,7 +55,7 @@ namespace QLCHXE
 
                             {
                                 TrangChuAdmin trangChuAdmin = new TrangChuAdmin();
-                                trangChuAdmin.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                                
                                 trangChuAdmin.idUser = tk.TaiKhoan;
                                 trangChuAdmin.Show();
                                 this.Close();
@@ -65,7 +65,8 @@ namespace QLCHXE
 
                             {
                                 TrangChuNV trangChuNV = new TrangChuNV();
-                                trangChuNV.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                                
+                                trangChuNV.idUser = tk.TaiKhoan;
                                 trangChuNV.Show();
                                 this.Close();
                             }

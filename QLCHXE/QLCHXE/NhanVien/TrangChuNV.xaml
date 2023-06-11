@@ -5,47 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLCHXE.NhanVien"
         mc:Ignorable="d"
-        Title="TrangChuNV" Height="600" Width="1000">
+        Title="Nhân viên" WindowState="Maximized"
+        WindowStyle="None">
     <Grid>
-        <TabControl x:Name="tabControlMain">
-            <TabItem Header="Trang chu">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
 
-                    <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Hidden">
-                        <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Margin="0,10,0,0" Click="Btn_QuanLyXeMay_Click">Quan ly Xe May</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Margin="0,10,0,0" Click="Btn_QuanLyOto_Click">Quan ly Oto</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Margin="0,10,0,0" Click="Btn_QuanLyXetai_Click">Quan ly Xe Tai</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Margin="0,10,0,0">Nhap Xe May</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Margin="0,10,0,0">Nhap Oto</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Margin="0,10,0,0">Nhap Xe Tai</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_ThongKeDT" Margin="0,10,0,0">Doanh Thu</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Margin="0,10,0,0">Quan Ly Ban Xe</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Margin="0,10,0,0">Doi mat khau</Button>
-                            <Button Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Margin="0,10,0,0">Dang xuat</Button>
-                        </StackPanel>
-                    </ScrollViewer>
-                    
-
-                    <StackPanel  Grid.Column="1">
-                        <Image  x:Name="Img_TT" Height="550">
-                            <Image.Source>
-                                <BitmapImage DecodePixelWidth="1080" UriSource="/wwwroot/image_TT.jpg"/>
-                            </Image.Source>
-                        </Image>
-                    </StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
 
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="2" Background="Aqua">
+                <TextBlock Margin="10 0 0 0" FontSize="16" HorizontalAlignment="Left" DockPanel.Dock="Left">Quản lý của hàng</TextBlock>
+                <StackPanel Width="60" Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <TextBlock Style="{StaticResource HoverStyle}" FontSize="20" Cursor="Hand" Width="30" Height="30" x:Name="hidden" MouseLeftButtonUp="hidden_MouseLeftButtonUp" Padding="10 0 0 0">-</TextBlock>
+                    <TextBlock Style="{StaticResource HoverStyle}" FontSize="16" Cursor="Hand" Width="30" Height="30" x:Name="close" MouseLeftButtonUp="close_MouseLeftButtonUp" Padding="10 3 0 0" >X</TextBlock>
+                </StackPanel>
 
 
-                </Grid>
-            </TabItem>
-            <TabItem Header="Huong dan"></TabItem>
-        </TabControl>
+            </DockPanel>
+
+            <ScrollViewer Grid.Column="0" Grid.Row="1" Background="Beige" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+
+                <StackPanel>
+
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Click="Btn_QuanLyXeMay_Click">Quản lý xe máy</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Click="Btn_QuanLyOto_Click">Quản lý ô tô</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Click="Btn_QuanLyXetai_Click">Quản lý xe tải</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Kho xe máy</Button>
+
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Kho ô tô</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Kho xe tải</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_ThongKeDT" Click="Btn_ThongKeDT_Click">Thống kê</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Nhà cung cấp</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" Margin="0,10,0,0">Đổi mật khẩu</Button>
+                    <Button HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
+                </StackPanel>
+            </ScrollViewer>
+
+
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1">
+
+            </Frame>
+
+
+
+
+
+        </Grid>
     </Grid>
 </Window>

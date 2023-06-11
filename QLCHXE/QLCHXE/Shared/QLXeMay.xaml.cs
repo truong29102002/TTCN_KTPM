@@ -14,7 +14,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
 using QLCHXE.Models;
+using QLCHXE.Report;
 using QLCHXE.wwwroot;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -114,48 +116,9 @@ namespace QLCHXE.Shared
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCongsuat.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtSoluong.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()) || string.IsNullOrEmpty(dateNgayNhap.Text.Trim()))
-            {
-                MessageBox.Show("Có ô chưa nhập dữ liệu!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            else
-            {
-                try
-                {
-                    string idPT = "PT" + (_db.PhuongTiens.Count() + RandomNumberGenerator.GetInt32(1000, 9999)).ToString();
-                    PhuongTien pt = new PhuongTien();
-
-                    pt.IdPt = idPT;
-                    pt.NamSx = int.Parse(cbxNamsx.SelectedItem.ToString());
-                    pt.Gia = float.Parse(txtGiaban.Text);
-                    pt.Mamau = ((Mau)cbxMau.SelectedItem).Mamau;
-                    pt.TenXe = txtTenXe.Text;
-                    pt.Ngaynhap = DateTime.Parse(dateNgayNhap.SelectedDate.Value.ToString("yyyy-MM-dd"));
-                    pt.Soluong = int.Parse(txtSoluong.Text);
-                    pt.Mota = txtMota.Text;
-                    pt.Donvi = txtDonVi.Text;
-                    pt.IdHangXe = ((HangXe)cbxHangsx.SelectedItem).IdHangXe;
-
-                    _db.Add(pt);
-
-                    XeMay xm = new XeMay();
-
-                    xm.IdPt = idPT;
-                    xm.CongSuat = int.Parse(txtCongsuat.Text);
-                    xm.IdXeMay = "XM" + (_db.XeMays.Count() + RandomNumberGenerator.GetInt32(1000, 9999)).ToString();
-
-                    _db.Add(xm);
-                    _db.SaveChanges();
-                    LoadDtgView();
-                    MessageBox.Show("Them thanh cong xe moi", "Thong bao");
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-
-                }
-            }
+            KhoXeMay khoXeMay = new KhoXeMay();
+            khoXeMay.btnBack.Visibility = Visibility.Visible;
+            NavigationService.Navigate(khoXeMay);
 
         }
 
@@ -182,18 +145,34 @@ namespace QLCHXE.Shared
                         string idPT = properties[1].GetValue(dtgQLXM.SelectedItem).ToString();
 
                         var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
+                        if (sql != null)
+                        {
+                            try
+                            {
+                                #region Them Kho_PT admin
+                                var xeKho = _db.KhoPhuongTiens.SingleOrDefault(x => x.IdPt == sql.IdPt);
+                                xeKho.SoLuongKho += sql.Soluong;
+                                xeKho.UpdateAt = DateTime.Parse(DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-dd"));
+                                #endregion
+                            }
+                            catch (Exception ex)
+                            {
+
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
                         var query = _db.XeMays.SingleOrDefault(i => i.IdPt.Equals(idPT));
 
 
 
-                        if (MessageBox.Show("Xac nhan xoa phuong tien co ma: " + idPT, "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        if (MessageBox.Show("Xác nhận chuyển xe vào kho ", "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {
                             _db.Remove(query);
                             _db.Remove(sql);
                             _db.SaveChanges();
                             LoadDtgView();
-                            MessageBox.Show("Da xoa phuong tien co ma: " + idPT);
-                            LoadDtgView();
+                            MessageBox.Show("Thành công");
+
                         }
                     }
                     catch (Exception ex)
@@ -223,18 +202,34 @@ namespace QLCHXE.Shared
 
                                 var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
                                 var query = _db.XeMays.SingleOrDefault(i => i.IdPt.Equals(idPT));
-                                
 
-                                
-                                    _db.Remove(query);
-                                    _db.Remove(sql);
-                                    _db.SaveChanges();
-                                    LoadDtgView();
-                                
+                                if (sql != null)
+                                {
+                                    try
+                                    {
+                                        #region Them Kho_PT admin
+                                        var xeKho = _db.KhoPhuongTiens.SingleOrDefault(x => x.IdPt == sql.IdPt);
+                                        xeKho.SoLuongKho += sql.Soluong;
+                                        xeKho.UpdateAt = DateTime.Parse(DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-dd"));
+                                        #endregion
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                        MessageBox.Show(ex.Message);
+                                    }
+                                }
+
+                                _db.Remove(query);
+                                _db.Remove(sql);
+                                _db.SaveChanges();
+                                LoadDtgView();
+
                             }
                         }
 
-                        MessageBox.Show("Da xoa tat ca phuong tien duoc chon", "Thong bao");
+                        MessageBox.Show("Các phương tiện được chọn đã chuyển vào kho!", "Thong bao");
                     }
 
 
@@ -257,7 +252,7 @@ namespace QLCHXE.Shared
         {
             if (dtgQLXM.SelectedItem != null)
             {
-                if (string.IsNullOrEmpty(txtCongsuat.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtSoluong.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()) || string.IsNullOrEmpty(dateNgayNhap.Text.Trim()))
+                if (string.IsNullOrEmpty(txtCongsuat.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()))
                 {
                     MessageBox.Show("Có ô chưa nhập dữ liệu!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -277,8 +272,8 @@ namespace QLCHXE.Shared
                         pt.Gia = float.Parse(txtGiaban.Text);
                         pt.Mamau = ((Mau)cbxMau.SelectedItem).Mamau;
                         pt.TenXe = txtTenXe.Text;
-                        pt.Ngaynhap = DateTime.Parse(dateNgayNhap.SelectedDate.Value.ToString("yyyy-MM-dd"));
-                        pt.Soluong = int.Parse(txtSoluong.Text);
+                        //pt.Ngaynhap = DateTime.Parse(dateNgayNhap.SelectedDate.Value.ToString("yyyy-MM-dd"));
+                        //pt.Soluong = int.Parse(txtSoluong.Text);
                         pt.Mota = txtMota.Text;
                         pt.Donvi = txtDonVi.Text;
                         pt.IdHangXe = ((HangXe)cbxHangsx.SelectedItem).IdHangXe;
@@ -309,7 +304,7 @@ namespace QLCHXE.Shared
         private void btnNhapMoi_Click(object sender, RoutedEventArgs e)
         {
             txtTenXe.Text = "";
-            txtSoluong.Text = "";
+
             txtMota.Text = "";
             txtGiaban.Text = "";
             txtDonVi.Text = "";
@@ -317,7 +312,7 @@ namespace QLCHXE.Shared
             cbxHangsx.SelectedIndex = 0;
             cbxMau.SelectedIndex = 0;
             cbxNamsx.SelectedIndex = cbxNamsx.Items.Count - 1;
-            dateNgayNhap.Text = "";
+
             LoadDtgView();
         }
 
@@ -334,9 +329,9 @@ namespace QLCHXE.Shared
                     txtGiaban.Text = propertyInfos[5].GetValue(dtgQLXM.SelectedValue).ToString();
                     txtDonVi.Text = propertyInfos[10].GetValue(dtgQLXM.SelectedValue).ToString();
                     txtCongsuat.Text = propertyInfos[7].GetValue(dtgQLXM.SelectedValue).ToString();
-                    txtSoluong.Text = propertyInfos[9].GetValue(dtgQLXM.SelectedValue).ToString();
+
                     txtMota.Text = propertyInfos[11].GetValue(dtgQLXM.SelectedValue).ToString();
-                    dateNgayNhap.Text = propertyInfos[8].GetValue(dtgQLXM.SelectedValue).ToString();
+
                     cbxHangsx.Text = propertyInfos[3].GetValue(dtgQLXM.SelectedValue).ToString();
                     cbxNamsx.Text = propertyInfos[4].GetValue(dtgQLXM.SelectedValue).ToString();
                     cbxMau.Text = propertyInfos[6].GetValue(dtgQLXM.SelectedValue).ToString();
@@ -349,6 +344,148 @@ namespace QLCHXE.Shared
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+
+        }
+
+        private void btnBan_Click(object sender, RoutedEventArgs e)
+        {
+            #region Ban xe
+            OrderDetail orderDetail = new OrderDetail();
+            ThongKe thongKe = new ThongKe();
+            int count = 0;
+            foreach (var item in listData)
+            {
+                if (item.isChecked)
+                {
+                    count++;
+                }
+            }
+            if (count <= 0)
+            {
+                if (dtgQLXM.SelectedItem != null)
+                {
+                    try
+                    {
+                        Type type = dtgQLXM.SelectedItem.GetType();
+                        PropertyInfo[] properties = type.GetProperties();
+
+                        string idPT = properties[1].GetValue(dtgQLXM.SelectedItem).ToString();
+
+                        var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
+                        if (sql != null)
+                        {
+                            try
+                            {
+                                #region Them Kho_PT admin
+                                var xeKho = _db.PhuongTiens.SingleOrDefault(x => x.IdPt == sql.IdPt);
+                                if (xeKho != null)
+                                {
+                                    orderDetail.Id = xeKho.IdPt;
+                                    orderDetail.TenXeMua = xeKho.TenXe;
+                                    orderDetail.SoLuongMua = xeKho.Soluong;
+                                    orderDetail.Gia = xeKho.Gia;
+                                    xeKho.Soluong--;
+                                   
+                                }
+
+                                #endregion
+                            }
+                            catch (Exception ex)
+                            {
+
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
+
+
+
+
+                        if (MessageBox.Show("Xác nhận tạo hóa đơn cho đơn hàng này ", "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            _db.Add(orderDetail);
+                            _db.SaveChanges();
+                            LoadDtgView();
+                            thongKe.Show();
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chua chon xe can xoa!", "Thong bao");
+                }
+            }
+            else
+            {
+                #region delete muliple
+                try
+                {
+                    if (MessageBox.Show("Xac nhan tạo hóa đơn!", "Thong bao", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        foreach (var item in listData)
+                        {
+                            if (item.isChecked)
+                            {
+
+
+                                string idPT = item.IdPt;
+
+                                var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
+
+
+                                if (sql != null)
+                                {
+                                    try
+                                    {
+                                        #region Them Kho_PT admin
+                                        var xeKho = _db.PhuongTiens.SingleOrDefault(x => x.IdPt == sql.IdPt);
+                                        if(xeKho != null)
+                                        {
+                                            orderDetail.Id = xeKho.IdPt;
+                                            orderDetail.TenXeMua = xeKho.TenXe;
+                                            orderDetail.SoLuongMua = xeKho.Soluong;
+                                            orderDetail.Gia = xeKho.Gia;
+                                            xeKho.Soluong--;
+                                            _db.Add(orderDetail);
+                                        }
+                                        
+                                        #endregion
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                        MessageBox.Show(ex.Message);
+                                    }
+                                }
+
+
+                                _db.SaveChanges();
+                                LoadDtgView();
+
+
+                            }
+                        }
+
+                        thongKe.Show();
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error");
+                }
+                #endregion
+            }
+
+
+            #endregion
 
         }
     }

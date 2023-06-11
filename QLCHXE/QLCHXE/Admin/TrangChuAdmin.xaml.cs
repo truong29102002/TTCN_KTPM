@@ -35,6 +35,7 @@ namespace QLCHXE.Admin
         {
             buttonColors = new Dictionary<Button, Brush>();
             buttonColors.Add(Btn_DangXuat, Brushes.Transparent);
+            buttonColors.Add(btn_NV_KHO, Brushes.Transparent);
             buttonColors.Add(Btn_DoiMK, Brushes.Transparent);
             buttonColors.Add(Btn_NhapOto, Brushes.Transparent);
             buttonColors.Add(Btn_NhapXeMay, Brushes.Transparent);
@@ -44,7 +45,7 @@ namespace QLCHXE.Admin
             buttonColors.Add(Btn_QuanLyOto, Brushes.Transparent);
             buttonColors.Add(Btn_QuanLyXeMay, Brushes.Transparent);
             buttonColors.Add(Btn_QuanLyXetai, Brushes.Transparent);
-            buttonColors.Add(Btn_ThongKeDT, Brushes.Transparent);
+            
         }
         private void Btn_QuanLyNV_Click(object sender, RoutedEventArgs e)
         {
@@ -155,7 +156,7 @@ namespace QLCHXE.Admin
 
         private void Btn_NhapXeMay_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new PhieuNhapXeMay());
+            mainFrame.Navigate(new KhoXeMay { idUSer = this.idUser});
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -173,7 +174,7 @@ namespace QLCHXE.Admin
 
         private void Btn_NhapOto_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new NhapKhoOTO());
+            mainFrame.Navigate(new NhapKhoOTO { idUSer = this.idUser });
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -191,7 +192,7 @@ namespace QLCHXE.Admin
 
         private void Btn_NhapXeTai_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new NhapKhoXeTai());
+            mainFrame.Navigate(new NhapKhoXeTai { idUSer = this.idUser});
             Button clickedButton = sender as Button;
             if (buttonColors.ContainsKey(clickedButton))
             {
@@ -207,23 +208,7 @@ namespace QLCHXE.Admin
             UpdateButtonColors();
         }
 
-        private void Btn_ThongKeDT_Click(object sender, RoutedEventArgs e)
-        {
-            //mainFrame.Navigate(new ThongKe());
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
-        }
+        
 
         private void Btn_QuanLyBanXe_Click(object sender, RoutedEventArgs e)
         {
@@ -250,7 +235,23 @@ namespace QLCHXE.Admin
                 pair.Key.Background = pair.Value;
             }
         }
-      
 
+        private void btn_NV_KHO_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new NhanVienQuanLyKho());
+            Button clickedButton = sender as Button;
+            if (buttonColors.ContainsKey(clickedButton))
+            {
+                foreach (var button in buttonColors.Keys)
+                {
+                    if (button == clickedButton)
+                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                    else
+                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
+                }
+            }
+
+            UpdateButtonColors();
+        }
     }
 }

@@ -19,10 +19,10 @@
 
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnThem_Click">Thêm</Button>
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Click="btnThem_Click">Nhập hàng từ kho</Button>
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnXoa_Click">Xóa</Button>
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Click="btnXoa_Click">Chuyển vào kho</Button>
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe tải</TextBlock>
@@ -90,10 +90,7 @@
                             <TextBlock Text="Đơn vị: "/>
                         </StackPanel>
 
-                        <StackPanel Margin="10,13,10,10">
-                            <TextBlock Text="Ngày nhập: "/>
-
-                        </StackPanel>
+                        
 
                     </StackPanel>
 
@@ -106,9 +103,7 @@
                             <TextBox x:Name="txtDonVi"/>
                         </StackPanel>
 
-                        <StackPanel Margin="10">
-                            <DatePicker x:Name="dateNgayNhap"/>
-                        </StackPanel>
+                        
                     </StackPanel>
 
                 </Grid>
@@ -176,7 +171,7 @@
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
 
             <TextBlock Text="Thông tin xe tải" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
-            <DataGrid x:Name="dtgXeTai" IsReadOnly="False" CanUserDeleteRows="True" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" Height="500" SelectedCellsChanged="dtgXeTai_SelectedCellsChanged">
+            <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgXeTai" IsReadOnly="False" CanUserDeleteRows="True" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" Height="500" SelectedCellsChanged="dtgXeTai_SelectedCellsChanged">
                 <DataGrid.Columns>
                     
                     <DataGridTextColumn Header="Tên xe" Binding="{Binding TenXe}"/>

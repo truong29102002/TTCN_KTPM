@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLCHXE.Shared"
         mc:Ignorable="d"
-        Title="Quan Ly OTO" Height="900" Width="1350" FontSize="14">
+        Title="Quan Ly OTO" Height="900" Width="1350" FontSize="13">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
@@ -19,10 +19,10 @@
 
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnThem_Click">Thêm</Button>
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Margin="20" Click="btnThem_Click">Nhập từ kho</Button>
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnXoa_Click">Xóa</Button>
+            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Margin="10" Click="btnXoa_Click">Chuyển vào kho</Button>
             <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe ô tô</TextBlock>
@@ -84,10 +84,11 @@
                         <StackPanel Margin="10,13,10,10">
                             <TextBlock Text="Đơn vị: "/>
                         </StackPanel>
-
-                        <StackPanel Margin="10,13,10,10">
-                            <TextBlock Text="Ngày nhập: "/>
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Kiểu động cơ:" />
+                            
                         </StackPanel>
+
 
                     </StackPanel>
 
@@ -99,12 +100,13 @@
                         <StackPanel Margin="10">
                             <TextBox x:Name="txtDonVi"/>
                         </StackPanel>
-
                         <StackPanel Margin="10">
-                            <DatePicker x:Name="dateNgayNhap"/>
+                            
+                            <TextBox Width="153" x:Name="txtDongCo"></TextBox>
                         </StackPanel>
-                    </StackPanel>
 
+                    </StackPanel>
+                    
                 </Grid>
 
             </StackPanel>
@@ -157,20 +159,17 @@
                     <TextBlock Text="Mô tả:" Margin="0,0,10,0"/>
                     <TextBox Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True" Margin="30,0,0,0"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <TextBlock Text="Kiểu động cơ:" Margin="0,0,10,0"/>
-                    <TextBox Width="153" x:Name="txtDongCo"></TextBox>
-                </StackPanel>
+                
 
 
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical" Margin="0,50,0,0">
-            <TextBlock Text="Thong tin oto" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
-            <DataGrid Height="500" Width="1000" x:Name="dtgQLXoto" IsReadOnly="False" Margin="30 50 100 0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="True" SelectedCellsChanged="dtgQLXoto_SelectedCellsChanged" >
+            <TextBlock Text="Thông tin ô tô" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
+            <DataGrid Style="{StaticResource MaterialDesignDataGrid}" Height="500" x:Name="dtgQLXoto" IsReadOnly="False" Margin="30 50 100 0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="True" SelectedCellsChanged="dtgQLXoto_SelectedCellsChanged" >
                 <DataGrid.Columns>
-                    
+                    <DataGridTextColumn Header="Mã PT" Binding="{Binding IdPt}"/>
                     <DataGridTextColumn Header="Tên xe" Binding="{Binding TenXe}"/>
                     <DataGridTextColumn Header="Hãng xe" Binding="{Binding HangXeDT}"/>
                     <DataGridTextColumn Header="Năm sản xuất" Binding="{Binding Namsx}"/>
@@ -182,7 +181,7 @@
                     <DataGridTextColumn Header="Số lượng còn" Binding="{Binding SLCon}"/>
                     <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}"/>
                     <DataGridTextColumn Header="Mô tả" Binding="{Binding MoTa}"/>
-                    <DataGridTextColumn Header="Tình trạng" Width="*" Binding="{Binding TinhTrang}"/>
+                    <DataGridTextColumn Header="Tình trạng" Binding="{Binding TinhTrang}"/>
                     <DataGridCheckBoxColumn Header="X" Binding="{Binding isChecked}"/>
                 </DataGrid.Columns>
             </DataGrid>

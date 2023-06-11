@@ -21,33 +21,81 @@ namespace QLCHXE.NhanVien
     /// </summary>
     public partial class TrangChuNV : Window
     {
-        public void ImageTT()
-        {
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(@"D:\TTCNKTPM\TestPJ\TestPJ\wwwroot\Image_TT.jpg");
-            bitmap.EndInit();
-            Img_TT.Source = bitmap;
-        }
+        public string idUser { get; set; }
+
         public TrangChuNV()
         {
             InitializeComponent();
-            ImageTT();
+            
+        }
+
+        private void close_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void hidden_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
 
         private void Btn_QuanLyXeMay_Click(object sender, RoutedEventArgs e)
         {
-            
+            mainFrame.Navigate(new QLXeMay());
+
         }
 
         private void Btn_QuanLyOto_Click(object sender, RoutedEventArgs e)
         {
+            mainFrame.Navigate(new QLOTO());
 
         }
 
         private void Btn_QuanLyXetai_Click(object sender, RoutedEventArgs e)
         {
+            mainFrame.Navigate(new QLXeTai());
 
+        }
+
+        private void Btn_NhapXeMay_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new KhoXeMay { idUSer = this.idUser });
+
+        }
+
+        private void Btn_NhapOto_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new NhapKhoOTO { idUSer = this.idUser });
+        }
+
+        private void Btn_NhapXeTai_Click(object sender, RoutedEventArgs e)
+        {
+
+            mainFrame.Navigate(new NhapKhoXeTai { idUSer = this.idUser });
+        }
+
+        private void Btn_ThongKeDT_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_QuanLyBanXe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_DoiMK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_DangXuat_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            mainWindow.Show();
+
+            this.Close();
         }
     }
 }

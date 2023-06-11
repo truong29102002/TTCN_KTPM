@@ -7,6 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Admin\NhanVienQuanLyKho.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Report\ReportReview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Report\ThongKe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\KhoXeMay.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Shared\NhapKhoOTO.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,14 +28,11 @@
     <Compile Update="Shared\NhaTaiTro.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Shared\QuanLyBanXe.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Shared\ThongKe.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Admin\NhanVienQuanLyKho.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Admin\QLNV.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -36,7 +45,16 @@
     <Page Update="NhanVien\TrangChuNV.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Report\ReportReview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Report\ThongKe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Shared\DOIMK.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Shared\KhoXeMay.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Shared\NhapKhoOTO.xaml">
@@ -48,9 +66,6 @@
     <Page Update="Shared\NhaTaiTro.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Shared\PhieuNhapXeMay.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Shared\QLOTO.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -58,12 +73,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Shared\QLXeTai.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Shared\QuanLyBanXe.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Shared\ThongKe.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

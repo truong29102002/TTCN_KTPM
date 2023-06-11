@@ -7,7 +7,7 @@ namespace QLCHXE.Models
     {
         public NhaCungCap()
         {
-            Khos = new HashSet<Kho>();
+            KhoPhuongTiens = new HashSet<KhoPhuongTien>();
         }
 
         public string MaNcc { get; set; } = null!;
@@ -15,6 +15,6 @@ namespace QLCHXE.Models
         public string? DiaChiNcc { get; set; }
         public string? SoDtncc { get; set; }
 
-        public virtual ICollection<Kho> Khos { get; set; }
+        public virtual ICollection<KhoPhuongTien> KhoPhuongTiens { get; set; }
     }
 }

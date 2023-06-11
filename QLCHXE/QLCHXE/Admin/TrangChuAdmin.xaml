@@ -13,7 +13,7 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -36,19 +36,21 @@
 
             <ScrollViewer Grid.Column="0" Grid.Row="1" Background="Beige" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
 
-                <StackPanel Margin="0 20 0 0">
+                <StackPanel>
 
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyNV" Click="Btn_QuanLyNV_Click">Quản lý nhân viên</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Click="Btn_QuanLyXeMay_Click">Quản lý xe máy</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Click="Btn_QuanLyOto_Click">Quản lý ô tô</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Click="Btn_QuanLyXetai_Click">Quản lý xe tải</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Nhập xe máy</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Nhập ô tô</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Nhập xe tải</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_ThongKeDT" Click="Btn_ThongKeDT_Click">Thống kê</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Nhà tài trợ</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" Margin="0,10,0,0">Đổi mật khẩu</Button>
-                    <Button BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyNV" Click="Btn_QuanLyNV_Click">Quản lý nhân viên</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="btn_NV_KHO" Click="btn_NV_KHO_Click" >Quản lý nhân viên kho</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Click="Btn_QuanLyXeMay_Click">Quản lý xe máy</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Click="Btn_QuanLyOto_Click">Quản lý ô tô</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Click="Btn_QuanLyXetai_Click">Quản lý xe tải</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Kho xe máy</Button>
+
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Kho ô tô</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Kho xe tải</Button>
+
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Nhà cung cấp</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" Margin="0,10,0,0">Đổi mật khẩu</Button>
+                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
                 </StackPanel>
             </ScrollViewer>
 

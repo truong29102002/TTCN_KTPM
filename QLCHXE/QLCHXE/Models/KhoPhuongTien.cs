@@ -22,10 +22,16 @@ namespace QLCHXE.Models
         public string? DonVi { get; set; }
         public string? Description { get; set; }
         public string? IdHangXe { get; set; }
+        public string? MaNcc { get; set; }
+        public DateTime? CreateAt { get; set; }
+        public DateTime? UpdateAt { get; set; }
+        public string? NvUpdate { get; set; }
+        public int? SoLuongNhap { get; set; }
 
         public virtual HangXe? IdHangXeNavigation { get; set; }
         public virtual Kho? IdKhoNavigation { get; set; }
         public virtual Mau? IdMauNavigation { get; set; }
+        public virtual NhaCungCap? MaNccNavigation { get; set; }
         public virtual ICollection<OtoKho> OtoKhos { get; set; }
         public virtual ICollection<XeMayKho> XeMayKhos { get; set; }
         public virtual ICollection<XeTaiKho> XeTaiKhos { get; set; }

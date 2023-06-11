@@ -24,6 +24,8 @@ namespace QLCHXE.Models
         public virtual DbSet<Mau> Maus { get; set; } = null!;
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; } = null!;
         public virtual DbSet<NhanVien> NhanViens { get; set; } = null!;
+        public virtual DbSet<Order> Orders { get; set; } = null!;
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
         public virtual DbSet<Oto> Otos { get; set; } = null!;
         public virtual DbSet<OtoKho> OtoKhos { get; set; } = null!;
         public virtual DbSet<PhuongTien> PhuongTiens { get; set; } = null!;
@@ -91,25 +93,11 @@ namespace QLCHXE.Models
                     .HasColumnName("id")
                     .IsFixedLength();
 
-                entity.Property(e => e.CreateAt)
-                    .HasColumnType("datetime")
-                    .HasColumnName("createAt");
-
-                entity.Property(e => e.MaNcc)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaNCC");
+                entity.Property(e => e.DiaChiKho).HasMaxLength(250);
 
                 entity.Property(e => e.NhanVienThem).HasMaxLength(250);
 
-                entity.Property(e => e.UpdateAt)
-                    .HasColumnType("datetime")
-                    .HasColumnName("updateAt");
-
-                entity.HasOne(d => d.MaNccNavigation)
-                    .WithMany(p => p.Khos)
-                    .HasForeignKey(d => d.MaNcc)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Kho_NhaCungCap");
+                entity.Property(e => e.TenKho).HasMaxLength(250);
             });
 
             modelBuilder.Entity<KhoPhuongTien>(entity =>
@@ -121,6 +109,10 @@ namespace QLCHXE.Models
                 entity.Property(e => e.IdPt)
                     .HasMaxLength(50)
                     .HasColumnName("idPT");
+
+                entity.Property(e => e.CreateAt)
+                    .HasColumnType("date")
+                    .HasColumnName("createAt");
 
                 entity.Property(e => e.Description).HasMaxLength(200);
 
@@ -139,7 +131,21 @@ namespace QLCHXE.Models
                     .HasMaxLength(10)
                     .HasColumnName("idMau");
 
+                entity.Property(e => e.MaNcc)
+                    .HasMaxLength(10)
+                    .HasColumnName("MaNCC");
+
+                entity.Property(e => e.NvUpdate)
+                    .HasMaxLength(250)
+                    .HasColumnName("nvUpdate");
+
+                entity.Property(e => e.SoLuongNhap).HasColumnName("soLuongNhap");
+
                 entity.Property(e => e.TenXe).HasMaxLength(100);
+
+                entity.Property(e => e.UpdateAt)
+                    .HasColumnType("date")
+                    .HasColumnName("updateAt");
 
                 entity.HasOne(d => d.IdHangXeNavigation)
                     .WithMany(p => p.KhoPhuongTiens)
@@ -158,6 +164,12 @@ namespace QLCHXE.Models
                     .HasForeignKey(d => d.IdMau)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Kho_PhuongTien_Mau");
+
+                entity.HasOne(d => d.MaNccNavigation)
+                    .WithMany(p => p.KhoPhuongTiens)
+                    .HasForeignKey(d => d.MaNcc)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_Kho_PhuongTien_NhaCungCap");
             });
 
             modelBuilder.Entity<Mau>(entity =>
@@ -227,6 +239,40 @@ namespace QLCHXE.Models
                     .HasForeignKey(d => d.Taikhoan)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_NhanVien_Account");
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.ToTable("order");
+
+                entity.Property(e => e.Id)
+                    .HasMaxLength(10)
+                    .HasColumnName("id")
+                    .IsFixedLength();
+
+                entity.Property(e => e.NgayBan)
+                    .HasColumnType("datetime")
+                    .HasColumnName("ngayBan");
+
+                entity.Property(e => e.NhanVienBanHang)
+                    .HasMaxLength(50)
+                    .HasColumnName("nhanVienBanHang");
+            });
+
+            modelBuilder.Entity<OrderDetail>(entity =>
+            {
+                entity.ToTable("orderDetails");
+
+                entity.Property(e => e.Id)
+                    .HasMaxLength(10)
+                    .HasColumnName("id")
+                    .IsFixedLength();
+
+                entity.Property(e => e.SoLuongMua).HasColumnName("soLuongMua");
+
+                entity.Property(e => e.TenXeMua)
+                    .HasMaxLength(250)
+                    .HasColumnName("tenXeMua");
             });
 
             modelBuilder.Entity<Oto>(entity =>
@@ -357,10 +403,6 @@ namespace QLCHXE.Models
                     .HasColumnName("MaKH");
 
                 entity.Property(e => e.DiaChi).HasMaxLength(200);
-
-                entity.Property(e => e.IdKh)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("Id_KH");
 
                 entity.Property(e => e.Sodienthoai).HasMaxLength(10);
 

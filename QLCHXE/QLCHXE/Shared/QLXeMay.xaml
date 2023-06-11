@@ -24,7 +24,7 @@
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Cursor="Hand" Padding="10" VerticalAlignment="Center" Margin="20" Click="btnThem_Click">Nhập từ kho</Button>
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Cursor="Hand" Padding="0 10 0 10" VerticalAlignment="Center" Margin="20" Click="btnXoa_Click">Chuyển vào kho</Button>
-            <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnBan" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20">Bán</Button>
+            <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnBan" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnBan_Click">Bán</Button>
             <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe máy</TextBlock>
@@ -87,9 +87,7 @@
                             <TextBlock Text="Đơn vị: "/>
                         </StackPanel>
 
-                        <StackPanel Margin="10,13,10,10">
-                            <TextBlock Text="Ngày nhập: "/>
-                        </StackPanel>
+                        <StackPanel Margin="10,13,10,10"/>
 
                     </StackPanel>
 
@@ -102,9 +100,7 @@
                             <TextBox x:Name="txtDonVi"/>
                         </StackPanel>
 
-                        <StackPanel Margin="10">
-                            <DatePicker x:Name="dateNgayNhap"/>
-                        </StackPanel>
+                        <StackPanel Margin="10"/>
                     </StackPanel>
 
                 </Grid>
@@ -125,9 +121,7 @@
                             <TextBlock Text="Phân khối: " VerticalAlignment="Center"/>
                         </StackPanel>
 
-                        <StackPanel Margin="10,13,10,10">
-                            <TextBlock Text="Số lượng: " VerticalAlignment="Center"/>
-                        </StackPanel>
+                        <StackPanel Margin="10,13,10,10"/>
 
                         <StackPanel Margin="10,13,10,10">
                             <TextBlock Text="Màu: " VerticalAlignment="Center"/>
@@ -139,9 +133,7 @@
                             <TextBox x:Name="txtCongsuat"/>
                         </StackPanel>
 
-                        <StackPanel Margin="10">
-                            <TextBox x:Name="txtSoluong"/>
-                        </StackPanel>
+                        <StackPanel Margin="10"/>
 
                         <StackPanel Margin="10">
                             <ComboBox Width="120" x:Name="cbxMau" HorizontalAlignment="Left"/>
@@ -156,28 +148,28 @@
 
             <StackPanel Orientation="Vertical" Width="278" Margin="20,20,0,0">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Mô tả:" Margin="0,0,10,0"/>
-                    <TextBox Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+                    <TextBlock Text="Ghi chú:" Margin="0,0,10,0"/>
+                    <TextBox BorderBrush="Black" BorderThickness="1" Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
             <TextBlock Text="Thông tin xe máy" FontSize="16" FontWeight="Bold" Margin="50,10,0,-100"/>
-            <DataGrid x:Name="dtgQLXM" IsReadOnly="False" CanUserDeleteRows="True" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" SelectedCellsChanged="dtgQLXM_SelectedCellsChanged" Height="500">
+            <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgQLXM" IsReadOnly="False" CanUserDeleteRows="True" Margin="50" AutoGenerateColumns="False" CanUserAddRows="False" SelectedCellsChanged="dtgQLXM_SelectedCellsChanged" Height="500">
                 <DataGrid.Columns>
-                    
+                    <DataGridTextColumn Header="Mã PT" Binding="{Binding IdPt}"/>
                     <DataGridTextColumn Header="Tên xe" Binding="{Binding TenXe}"/>
                     <DataGridTextColumn Header="Hãng" Binding="{Binding HangXeDT}"/>
                     <DataGridTextColumn Header="Năm sản xuất" Binding="{Binding Namsx}"/>
-                    <DataGridTextColumn Header="Giá" Binding="{Binding GiaBan}"/>
+                    <DataGridTextColumn Header="Giá (VND)" Binding="{Binding GiaBan}"/>
                     <DataGridTextColumn Header="Màu" Binding="{Binding MauDT}"/>
-                    <DataGridTextColumn Header="Phân phối" Binding="{Binding CongSuat}"/>
+                    <DataGridTextColumn Header="Phân khối" Binding="{Binding CongSuat}"/>
                     <DataGridTextColumn Header="Ngày nhập" Binding="{Binding NgayNhap}"/>
                     <DataGridTextColumn Header="Số lượng còn" Binding="{Binding SLCon}"/>
                     <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}"/>
                     <DataGridTextColumn Header="Mô tả" Binding="{Binding MoTa}"/>
-                    <DataGridTextColumn Header="Tình trạng" Width="*" Binding="{Binding TinhTrang}"/>
+                    <DataGridTextColumn Header="Tình trạng" Binding="{Binding TinhTrang}"/>
                     <DataGridCheckBoxColumn Header=" X " Binding="{Binding isChecked}"/>
                 </DataGrid.Columns>
             </DataGrid>

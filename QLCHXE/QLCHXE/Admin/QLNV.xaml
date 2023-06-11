@@ -89,7 +89,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
-            <DataGrid Height="500" Margin="50,50,50,50" x:Name="dtgNV" IsReadOnly="True" AutoGenerateColumns="False" Foreground="Red" SelectedCellsChanged="dtgNV_SelectedCellsChanged">
+            <DataGrid Style="{StaticResource MaterialDesignDataGrid}" Height="500" Margin="50,50,50,50" x:Name="dtgNV" IsReadOnly="True" AutoGenerateColumns="False" Foreground="Red" SelectedCellsChanged="dtgNV_SelectedCellsChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding MaNv}"/>
                     <DataGridTextColumn Header="Tên nhân viên" Binding="{Binding TenNv}"/>

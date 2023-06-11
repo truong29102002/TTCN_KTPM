@@ -9,6 +9,5 @@ namespace QLCHXE.Models
         public string? TenKh { get; set; }
         public string? DiaChi { get; set; }
         public string? Sodienthoai { get; set; }
-        public int IdKh { get; set; }
     }
 }

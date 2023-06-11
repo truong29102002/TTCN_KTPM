@@ -11,12 +11,11 @@ namespace QLCHXE.Models
         }
 
         public string Id { get; set; } = null!;
-        public string? MaNcc { get; set; }
-        public DateTime? CreateAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
         public string? NhanVienThem { get; set; }
+        public string? TenKho { get; set; }
+        public string? DiaChiKho { get; set; }
+        public double? DienTich { get; set; }
 
-        public virtual NhaCungCap? MaNccNavigation { get; set; }
         public virtual ICollection<KhoPhuongTien> KhoPhuongTiens { get; set; }
     }
 }
