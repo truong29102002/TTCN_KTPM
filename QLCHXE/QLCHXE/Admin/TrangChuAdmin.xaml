@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLCHXE.Admin"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="TrangChuAdmin" 
        WindowState="Maximized"
@@ -13,7 +14,7 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -22,36 +23,51 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            
-            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="2" Background="Aqua">
-                <TextBlock Margin="10 0 0 0" FontSize="16" HorizontalAlignment="Left" DockPanel.Dock="Left">Quản lý của hàng</TextBlock>
+
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="2" Background="#FFDFDFDF">
+                <TextBlock Margin="10 0 0 0" FontSize="16" HorizontalAlignment="Left" DockPanel.Dock="Left">OneG Manager</TextBlock>
                 <StackPanel Width="60" Orientation="Horizontal" HorizontalAlignment="Right">
 
-                    <TextBlock Style="{StaticResource HoverStyle}" FontSize="20" Cursor="Hand" Width="30" Height="30" x:Name="hidden" MouseLeftButtonUp="hidden_MouseLeftButtonUp" Padding="10 0 0 0">-</TextBlock>
-                    <TextBlock Style="{StaticResource HoverStyle}" FontSize="16" Cursor="Hand" Width="30" Height="30" x:Name="close" MouseLeftButtonUp="close_MouseLeftButtonUp" Padding="10 3 0 0" >X</TextBlock>
+                    <TextBlock Style="{StaticResource HoverStyle}" Cursor="Hand" Width="30" Height="30" x:Name="hidden" MouseLeftButtonUp="hidden_MouseLeftButtonUp"><materialDesign:PackIcon Kind="Minimize" Margin="7"/></TextBlock>
+                    <TextBlock Style="{StaticResource HoverStyle}" Cursor="Hand" Width="30" Height="30" x:Name="close" MouseLeftButtonUp="close_MouseLeftButtonUp"><materialDesign:PackIcon Kind="Close" Margin="7"/></TextBlock>
                 </StackPanel>
-               
-                
+
+
             </DockPanel>
 
-            <ScrollViewer Grid.Column="0" Grid.Row="1" Background="Beige" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+            <ScrollViewer Grid.Column="0" Grid.Row="1" Style="{StaticResource ResourceKey=MaterialDesignScrollViewer}" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
 
-                <StackPanel>
 
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyNV" Click="Btn_QuanLyNV_Click">Quản lý nhân viên</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="btn_NV_KHO" Click="btn_NV_KHO_Click" >Quản lý nhân viên kho</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Click="Btn_QuanLyXeMay_Click">Quản lý xe máy</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Click="Btn_QuanLyOto_Click">Quản lý ô tô</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Click="Btn_QuanLyXetai_Click">Quản lý xe tải</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Kho xe máy</Button>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
 
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Kho ô tô</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Kho xe tải</Button>
 
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Nhà cung cấp</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" Margin="0,10,0,0">Đổi mật khẩu</Button>
-                    <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" Background="Beige" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
-                </StackPanel>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyNV" Click="Btn_QuanLyNV_Click">Quản lý nhân viên</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="btn_NV_KHO" Click="btn_NV_KHO_Click" >Quản lý nhân viên kho</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Click="Btn_QuanLyXeMay_Click">Quản lý xe máy</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Click="Btn_QuanLyOto_Click">Quản lý ô tô</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Click="Btn_QuanLyXetai_Click">Quản lý xe tải</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Kho xe máy</Button>
+
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Kho ô tô</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Kho xe tải</Button>
+
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="btnThongKe" Click="btnThongKe_Click">Thống kê phiếu nhập</Button>
+
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Nhà cung cấp</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" >Đổi mật khẩu</Button>
+                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Rectangle Fill="Black" Width="0.5" Height="1080" x:Name="RectangleMenu" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+
+
             </ScrollViewer>
 
 
@@ -65,7 +81,7 @@
 
         </Grid>
     </Grid>
-    
+
 
 </Window>
 

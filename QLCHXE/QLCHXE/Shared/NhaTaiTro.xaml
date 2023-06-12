@@ -24,9 +24,9 @@
                 <DataGridTextColumn Header="Địa chỉ" Width="*" Binding="{Binding diachi}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Style="{StaticResource HoverButtonStyle}" Cursor="Hand" Content="Thêm" HorizontalAlignment="Left" Margin="296,396,0,0" VerticalAlignment="Top" x:Name="btnThem" Click="btnThem_Click"/>
-        <Button Style="{StaticResource HoverButtonStyle}" Cursor="Hand" Content="Cập nhật" HorizontalAlignment="Left" Margin="377,396,0,0" VerticalAlignment="Top" x:Name="btnSua" Click="btnSua_Click"/>
-        <Button Style="{StaticResource HoverButtonStyle}" Cursor="Hand" Content="Xóa" HorizontalAlignment="Left" Margin="474,396,0,0" VerticalAlignment="Top" x:Name="btnXoa" Click="btnXoa_Click"/>
+        <Button Cursor="Hand" Content="Thêm" HorizontalAlignment="Left" Margin="296,396,0,0" VerticalAlignment="Top" x:Name="btnThem" Click="btnThem_Click"/>
+        <Button Cursor="Hand" Content="Cập nhật" HorizontalAlignment="Left" Margin="377,396,0,0" VerticalAlignment="Top" x:Name="btnSua" Click="btnSua_Click"/>
+        <Button Cursor="Hand" Content="Xóa" HorizontalAlignment="Left" Margin="474,396,0,0" VerticalAlignment="Top" x:Name="btnXoa" Click="btnXoa_Click"/>
 
     </Grid>
 </Page>

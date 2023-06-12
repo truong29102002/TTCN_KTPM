@@ -5,8 +5,15 @@ namespace QLCHXE.Models
 {
     public partial class Order
     {
+        public Order()
+        {
+            OrderDetails = new HashSet<OrderDetail>();
+        }
+
         public string Id { get; set; } = null!;
-        public string? NhanVienBanHang { get; set; }
-        public DateTime? NgayBan { get; set; }
+        public string? SoLuong { get; set; }
+        public string? Thanhtien { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

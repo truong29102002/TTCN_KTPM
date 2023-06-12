@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using QLCHXE.Models;
 using QLCHXE.Shared;
+using QLCHXE.Report;
+using System.Drawing;
 
 namespace QLCHXE.Admin
 {
@@ -30,6 +32,7 @@ namespace QLCHXE.Admin
         {
             InitializeComponent();
             InitializeButtonColors();
+            
         }
         private void InitializeButtonColors()
         {
@@ -45,6 +48,7 @@ namespace QLCHXE.Admin
             buttonColors.Add(Btn_QuanLyOto, Brushes.Transparent);
             buttonColors.Add(Btn_QuanLyXeMay, Brushes.Transparent);
             buttonColors.Add(Btn_QuanLyXetai, Brushes.Transparent);
+            buttonColors.Add(btnThongKe, Brushes.Transparent);
             
         }
         private void Btn_QuanLyNV_Click(object sender, RoutedEventArgs e)
@@ -56,7 +60,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -74,13 +78,13 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
             }
 
-            UpdateButtonColors(); ;
+            UpdateButtonColors(); 
         }
 
         private void Btn_QuanLyOto_Click(object sender, RoutedEventArgs e)
@@ -92,7 +96,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -109,7 +113,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -145,7 +149,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -163,7 +167,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -181,7 +185,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -199,7 +203,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -219,7 +223,7 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }
@@ -245,7 +249,26 @@ namespace QLCHXE.Admin
                 foreach (var button in buttonColors.Keys)
                 {
                     if (button == clickedButton)
-                        buttonColors[button] = Brushes.AliceBlue; // Màu khi được click
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
+                    else
+                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
+                }
+            }
+
+            UpdateButtonColors();
+        }
+
+        private void btnThongKe_Click(object sender, RoutedEventArgs e)
+        {
+            ReportReview reportReview = new ReportReview();
+            reportReview.Show();
+            Button clickedButton = sender as Button;
+            if (buttonColors.ContainsKey(clickedButton))
+            {
+                foreach (var button in buttonColors.Keys)
+                {
+                    if (button == clickedButton)
+                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
                     else
                         buttonColors[button] = Brushes.Transparent; // Màu khi không được click
                 }

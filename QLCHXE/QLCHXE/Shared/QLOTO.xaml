@@ -20,10 +20,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Margin="20" Click="btnThem_Click">Nhập từ kho</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Margin="10" Click="btnXoa_Click">Chuyển vào kho</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
+            <Button BorderThickness="0" x:Name="btnThem" VerticalAlignment="Center" Margin="20" Click="btnThem_Click">Nhập từ kho</Button>
+            <Button BorderThickness="0" x:Name="btnSua" VerticalAlignment="Center" Margin="20" Click="btnSua_Click">Cập nhật</Button>
+            <Button BorderThickness="0" x:Name="btnXoa" VerticalAlignment="Center" Margin="10" Click="btnXoa_Click">Chuyển vào kho</Button>
+            <Button BorderThickness="0" x:Name="btnNhapMoi" VerticalAlignment="Center" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
+            <Button BorderThickness="0" x:Name="btnBan" VerticalAlignment="Center" Margin="20" Click="btnBan_Click">Bán</Button>
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe ô tô</TextBlock>
         <StackPanel Margin="50,50,50,0" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
@@ -157,7 +158,7 @@
             <StackPanel Orientation="Vertical" Width="278" Margin="20,20,0,0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Mô tả:" Margin="0,0,10,0"/>
-                    <TextBox Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True" Margin="30,0,0,0"></TextBox>
+                    <TextBox BorderThickness="0.5" Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True" Margin="30,0,0,0"></TextBox>
                 </StackPanel>
                 
 

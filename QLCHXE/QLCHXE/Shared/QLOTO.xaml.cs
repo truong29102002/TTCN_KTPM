@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using QLCHXE.Models;
+using QLCHXE.Report;
 using QLCHXE.wwwroot;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -348,6 +349,173 @@ namespace QLCHXE.Shared
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+        }
+        public List<orderNow> listOr = new List<orderNow>();
+        private void btnBan_Click(object sender, RoutedEventArgs e)
+        {
+            #region Ban xe
+            var check = 0;
+
+            orderNow order;
+            int count = 0;
+            foreach (var item in listData)
+            {
+                if (item.isChecked)
+                {
+                    count++;
+                }
+            }
+            if (count <= 0)
+            {
+                if (dtgQLXoto.SelectedItem != null)
+                {
+                    try
+                    {
+                        Type type = dtgQLXoto.SelectedItem.GetType();
+                        PropertyInfo[] properties = type.GetProperties();
+
+                        string idPT = properties[1].GetValue(dtgQLXoto.SelectedItem).ToString();
+
+                        var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
+                        if (sql != null)
+                        {
+                            try
+                            {
+                                #region Them Kho_PT admin
+                                var xeKho = _db.PhuongTiens.SingleOrDefault(x => x.IdPt == sql.IdPt);
+                                if (xeKho != null)
+                                {
+
+
+                                    if (xeKho.Soluong == 0)
+                                    {
+                                        MessageBox.Show("Hàng này đã hết!", "Thông báo");
+                                    }
+                                    else
+                                    {
+                                        if (MessageBox.Show("Xác nhận tạo hóa đơn cho đơn hàng này ", "Thong Bao", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                                        {
+                                            listOr.Clear();
+
+                                            order = new orderNow(xeKho.TenXe, (double)xeKho.Gia, 1, (double)xeKho.Gia * 1);
+                                            listOr.Add(order);
+                                            xeKho.Soluong += -1;
+                                            _db.SaveChanges();
+                                            LoadDtgView();
+                                            ThongKe thongKe = new ThongKe { orderNows = this.listOr };
+                                            thongKe.Show();
+                                        }
+                                    }
+                                }
+
+                                #endregion
+                            }
+                            catch (Exception ex)
+                            {
+
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
+
+
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa chọn xe để bán!", "Thong bao");
+                }
+            }
+            else
+            {
+                #region delete muliple
+                try
+                {
+                    if (MessageBox.Show("Xac nhan tạo hóa đơn!", "Thong bao", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        listOr.Clear();
+                        foreach (var item in listData)
+                        {
+                            if (item.isChecked)
+                            {
+
+
+                                string idPT = item.IdPt;
+
+                                var sql = _db.PhuongTiens.SingleOrDefault(i => i.IdPt.Equals(idPT));
+
+
+                                if (sql != null)
+                                {
+                                    try
+                                    {
+                                        #region Them Kho_PT admin
+                                        var xeKho = _db.PhuongTiens.SingleOrDefault(x => x.IdPt == sql.IdPt);
+                                        if (xeKho != null)
+                                        {
+
+
+
+                                            if (xeKho.Soluong == 0)
+                                            {
+                                                MessageBox.Show("Hàng được chọn đã bán hết, vui lòng chọn lại!", "Thông báo");
+                                                check = 0;
+                                                break;
+                                            }
+                                            else
+                                            {
+
+                                                order = new orderNow(xeKho.TenXe, (double)xeKho.Gia, 1, (double)xeKho.Gia * 1);
+                                                xeKho.Soluong += -1;
+                                                listOr.Add(order);
+                                                check++;
+                                            }
+                                        }
+
+                                        #endregion
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                        MessageBox.Show(ex.Message);
+                                    }
+                                }
+
+
+
+
+
+                            }
+                        }
+                        if (check != 0)
+                        {
+                            _db.SaveChanges();
+                            LoadDtgView();
+                            ThongKe thongKe = new ThongKe { orderNows = this.listOr };
+                            thongKe.Show();
+                        }
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error");
+                }
+                #endregion
+            }
+
+
+            #endregion
         }
     }
 }

@@ -264,10 +264,7 @@ namespace QLCHXE.Shared
 
 
 
-        private void btntim_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+       
 
         private void btnsua_Click(object sender, RoutedEventArgs e)
         {

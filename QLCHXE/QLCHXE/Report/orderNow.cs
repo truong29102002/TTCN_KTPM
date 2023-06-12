@@ -8,9 +8,19 @@ namespace QLCHXE.Report
 {
     public class orderNow
     {
-        public string? TenXeMua { get; set; }
-        public double? Gia { get; set; }
-        public int? SoLuongMua { get; set; }
-        public string Id { get; set; } = null!;
+        public string TenXe { get; set; }
+        public double Gia { get; set; }
+        public int SoLuong { get; set; }
+
+        public double ThanhTien { get; set; }
+
+        public orderNow(string tx, double gia, int sl, double tt)
+        {
+            TenXe = tx;
+            Gia = gia;
+            SoLuong = sl;
+            ThanhTien = tt;
+        }
+
     }
 }

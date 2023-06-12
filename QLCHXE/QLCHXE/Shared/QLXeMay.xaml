@@ -21,11 +21,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
-            <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Cursor="Hand" Padding="10" VerticalAlignment="Center" Margin="20" Click="btnThem_Click">Nhập từ kho</Button>
-            <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
-            <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Cursor="Hand" Padding="0 10 0 10" VerticalAlignment="Center" Margin="20" Click="btnXoa_Click">Chuyển vào kho</Button>
-            <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnBan" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnBan_Click">Bán</Button>
-            <Button BorderThickness="0" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Cursor="Hand" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
+            <Button BorderThickness="0" x:Name="btnThem" Cursor="Hand" VerticalAlignment="Center" Margin="20" Click="btnThem_Click">Nhập từ kho</Button>
+            <Button x:Name="btnSua" Cursor="Hand" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
+            <Button x:Name="btnXoa" Cursor="Hand" VerticalAlignment="Center" Margin="20" Click="btnXoa_Click">Chuyển vào kho</Button>
+            <Button x:Name="btnBan" Cursor="Hand" VerticalAlignment="Center" Width="110" Margin="20" Click="btnBan_Click">Bán</Button>
+            <Button x:Name="btnNhapMoi" Cursor="Hand" VerticalAlignment="Center" Width="120" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe máy</TextBlock>
         <StackPanel Margin="50,50,50,0" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">

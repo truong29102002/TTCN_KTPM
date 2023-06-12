@@ -17,7 +17,6 @@ namespace QLCHXE.Models
         }
 
         public virtual DbSet<Account> Accounts { get; set; } = null!;
-        public virtual DbSet<GiaThue> GiaThues { get; set; } = null!;
         public virtual DbSet<HangXe> HangXes { get; set; } = null!;
         public virtual DbSet<Kho> Khos { get; set; } = null!;
         public virtual DbSet<KhoPhuongTien> KhoPhuongTiens { get; set; } = null!;
@@ -32,7 +31,6 @@ namespace QLCHXE.Models
         public virtual DbSet<Test> Tests { get; set; } = null!;
         public virtual DbSet<ThongTinCongTy> ThongTinCongTies { get; set; } = null!;
         public virtual DbSet<ThongTinKhachHang> ThongTinKhachHangs { get; set; } = null!;
-        public virtual DbSet<TrangThaiThue> TrangThaiThues { get; set; } = null!;
         public virtual DbSet<XeMay> XeMays { get; set; } = null!;
         public virtual DbSet<XeMayKho> XeMayKhos { get; set; } = null!;
         public virtual DbSet<XeTai> XeTais { get; set; } = null!;
@@ -58,17 +56,6 @@ namespace QLCHXE.Models
                 entity.Property(e => e.TaiKhoan).HasMaxLength(50);
 
                 entity.Property(e => e.Matkhau).HasMaxLength(100);
-            });
-
-            modelBuilder.Entity<GiaThue>(entity =>
-            {
-                entity.ToTable("GiaThue");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.GiaThue1).HasColumnName("GiaThue");
-
-                entity.Property(e => e.LoaiXe).HasMaxLength(10);
             });
 
             modelBuilder.Entity<HangXe>(entity =>
@@ -250,13 +237,15 @@ namespace QLCHXE.Models
                     .HasColumnName("id")
                     .IsFixedLength();
 
-                entity.Property(e => e.NgayBan)
-                    .HasColumnType("datetime")
-                    .HasColumnName("ngayBan");
+                entity.Property(e => e.SoLuong)
+                    .HasMaxLength(10)
+                    .HasColumnName("soLuong")
+                    .IsFixedLength();
 
-                entity.Property(e => e.NhanVienBanHang)
-                    .HasMaxLength(50)
-                    .HasColumnName("nhanVienBanHang");
+                entity.Property(e => e.Thanhtien)
+                    .HasMaxLength(10)
+                    .HasColumnName("thanhtien")
+                    .IsFixedLength();
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
@@ -268,11 +257,32 @@ namespace QLCHXE.Models
                     .HasColumnName("id")
                     .IsFixedLength();
 
+                entity.Property(e => e.IdKh)
+                    .HasMaxLength(10)
+                    .HasColumnName("idKH");
+
+                entity.Property(e => e.IdOrder)
+                    .HasMaxLength(10)
+                    .HasColumnName("idOrder")
+                    .IsFixedLength();
+
                 entity.Property(e => e.SoLuongMua).HasColumnName("soLuongMua");
 
                 entity.Property(e => e.TenXeMua)
                     .HasMaxLength(250)
                     .HasColumnName("tenXeMua");
+
+                entity.HasOne(d => d.IdKhNavigation)
+                    .WithMany(p => p.OrderDetails)
+                    .HasForeignKey(d => d.IdKh)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_orderDetails_ThongTinKhachHang");
+
+                entity.HasOne(d => d.IdOrderNavigation)
+                    .WithMany(p => p.OrderDetails)
+                    .HasForeignKey(d => d.IdOrder)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_orderDetails_order");
             });
 
             modelBuilder.Entity<Oto>(entity =>
@@ -409,19 +419,6 @@ namespace QLCHXE.Models
                 entity.Property(e => e.TenKh)
                     .HasMaxLength(50)
                     .HasColumnName("TenKH");
-            });
-
-            modelBuilder.Entity<TrangThaiThue>(entity =>
-            {
-                entity.HasKey(e => e.Mathue);
-
-                entity.ToTable("TrangThaiThue");
-
-                entity.Property(e => e.Mathue).HasMaxLength(10);
-
-                entity.Property(e => e.Ngaybatdau).HasColumnType("date");
-
-                entity.Property(e => e.Ngayketthuc).HasColumnType("date");
             });
 
             modelBuilder.Entity<XeMay>(entity =>

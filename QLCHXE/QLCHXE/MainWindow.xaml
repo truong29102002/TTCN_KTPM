@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLCHXE"
+        xmlns:materilDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Height="300" Width="450"
+        Height="300" Width="400" ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -13,22 +14,41 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column ="0" Content="Đăng nhập" FontSize="30" FontFamily="Jokerman" />
+        <StackPanel Grid.Row="0" Grid.Column ="0" Orientation="Horizontal">
+
+            <materilDesign:PackIcon Kind="Person" FontSize="50" Height="48" Width="44"/>
+            <Label Content="Login" FontSize="30"  />
+        </StackPanel>
+
         <StackPanel Grid.Row="1">
             <Label Content="_Tài khoản:" Target="{Binding ElementName=txtTk}" HorizontalAlignment="Right" Margin="0,10,0,0"/>
             <Label Content="_Mật khẩu:" Target="{Binding ElementName=txtMK}" HorizontalAlignment="Right" Margin="0,10,0,0"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="txtTk" Margin="0,10,0,0" Padding="0,5,0,5"/>
-            <PasswordBox x:Name="txtMK" Margin="0,10,0,0" Padding="0,5,0,5"/>
-            <Button x:Name="btnDN" Cursor="Hand" Width="100" Height="25" Margin="0,20,0,0" Content="Đăng nhập" Click="btnDN_Click"/>
-            <Label x:Name="lbFeedB"  Cursor="Hand" Foreground="#FF0E3DD5" FontStyle="Italic" Padding="0" FontSize="14" HorizontalAlignment="Right" Margin="0,50,0,0" MouseLeftButtonUp="lbFeedB_MouseLeftButtonUp" >
-                <TextBlock Style="{DynamicResource labelStyle}" FontFamily="Times New Roman"   >FeedBack to Admin</TextBlock>
-            </Label>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <StackPanel>
+                <TextBox x:Name="txtTk" Margin="0,5,0,0" Padding="0,5,0,5" Width="160" HorizontalAlignment="Left"/>
+                <PasswordBox x:Name="txtMK" Margin="0,5,0,0" Padding="0,5,0,5" Width="160" HorizontalAlignment="Left"/>
+                
+                    <Button x:Name="btnDN" Cursor="Hand" Width="110" Margin="0,20,10,0" Click="btnDN_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Padding="0" Foreground="#DDF6F6F6" Margin="0 0 5 0">Login</Label>
+                        <materilDesign:PackIcon Kind="Login" VerticalAlignment="Stretch"/>
+                    </StackPanel>
+                    </Button>
+                    
+                
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label x:Name="lbFeedB"  Cursor="Hand" Foreground="#FF0E3DD5" FontStyle="Italic" Padding="0" FontSize="14" Margin="0,50,10,0" MouseLeftButtonUp="lbFeedB_MouseLeftButtonUp" >
+                    <TextBlock Style="{DynamicResource labelStyle}" FontFamily="Times New Roman"   >FeedBack to Admin</TextBlock>
+                </Label>
+            </StackPanel>
         </StackPanel>
+        
         <Grid.Resources>
             <Style x:Key="labelStyle">
                 <Setter Property="TextBlock.TextDecorations" Value="Underline"></Setter>

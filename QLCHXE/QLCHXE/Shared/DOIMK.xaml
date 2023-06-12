@@ -14,7 +14,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="58,172,0,0" TextWrapping="Wrap" FontSize="14" Text="Mật khẩu mới:" VerticalAlignment="Top" Height="21" Width="97"/>
         <PasswordBox HorizontalAlignment="Left" Margin="198,232,0,0" FontSize="14" x:Name="txtMKMOI_compare" VerticalAlignment="Top" Width="199"/>
         <TextBlock HorizontalAlignment="Left" Margin="58,232,0,0" TextWrapping="Wrap" FontSize="14" Text="Xác nhận lại:" VerticalAlignment="Top" Height="21" Width="86"/>
-        <Button Style="{StaticResource HoverButtonStyle}" Content="Xác nhận" x:Name="btn_xacNhan" HorizontalAlignment="Left" Margin="301,310,0,0" VerticalAlignment="Top" Height="28" Width="96" Click="btn_xacNhan_Click"/>
+        <Button Content="Xác nhận" x:Name="btn_xacNhan" HorizontalAlignment="Left" Margin="301,310,0,0" VerticalAlignment="Top" Height="28" Width="96" Click="btn_xacNhan_Click"/>
 
     </Grid>
 </Page>

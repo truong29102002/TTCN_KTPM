@@ -1,5 +1,6 @@
 ﻿
 using QLCHXE.Models;
+using QLCHXE.Report;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -133,12 +134,7 @@ namespace QLCHXE.Shared
 
 
 
-        private void btntim_Click(object sender, RoutedEventArgs e)
-        {
-
-
-        }
-
+       
         private void btnthem_Click(object sender, RoutedEventArgs e)
         {
             #region them

@@ -126,10 +126,7 @@ namespace QLCHXE.Shared
             Loaded += Page_Loaded;
         }
 
-        private void btntim_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void btnthem_Click(object sender, RoutedEventArgs e)
         {

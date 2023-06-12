@@ -20,10 +20,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnThem" Padding="10" VerticalAlignment="Center" Click="btnThem_Click">Nhập hàng từ kho</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnSua_Click">Cập nhật</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Padding="10" VerticalAlignment="Center" Click="btnXoa_Click">Chuyển vào kho</Button>
-            <Button BorderThickness="0" Background="White" FontSize="20" Style="{StaticResource HoverButtonStyle}" x:Name="btnNhapMoi" Padding="10" VerticalAlignment="Center" Width="100" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
+            <Button BorderThickness="0" x:Name="btnThem" VerticalAlignment="Center" Margin="20" Click="btnThem_Click">Nhập hàng từ kho</Button>
+            <Button BorderThickness="0" x:Name="btnSua" VerticalAlignment="Center" Margin="20" Click="btnSua_Click">Cập nhật</Button>
+            <Button BorderThickness="0" x:Name="btnXoa" Margin="20" VerticalAlignment="Center" Click="btnXoa_Click">Chuyển vào kho</Button>
+            <Button BorderThickness="0" x:Name="btnNhapMoi" VerticalAlignment="Center" Margin="20" Click="btnNhapMoi_Click">Refresh</Button>
+            <Button BorderThickness="0" x:Name="btnSell" VerticalAlignment="Center" Margin="20" Click="btnSell_Click">Bán</Button>
         </StackPanel>
         <TextBlock Margin="30" FontWeight="Bold" FontSize="15">Nhập thông tin xe tải</TextBlock>
 
@@ -160,7 +161,7 @@
 
                     <TextBlock Text="Mô tả:" Margin="0,0,10,0"/>
 
-                    <TextBox Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+                    <TextBox BorderThickness="0.5" Width="153" x:Name="txtMota" Height="98" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
                 </StackPanel>
 
 

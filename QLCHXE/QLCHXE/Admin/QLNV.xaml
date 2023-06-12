@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLCHXE.Admin"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Quan ly nhan vien"
        Width="1000" Height="800">
@@ -71,13 +72,33 @@
 
         <StackPanel Orientation="Vertical" Grid.Column="2">
             <StackPanel Orientation="Horizontal" Margin="20">
-                <Button Style="{StaticResource HoverButtonStyle}" HorizontalAlignment="Left" x:Name="btnThem" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="btnThem_Click">Tạo</Button>
-                <Button Style="{StaticResource HoverButtonStyle}" x:Name="btnSua" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="btnSua_Click">Cập nhật</Button>
+                <Button HorizontalAlignment="Left" x:Name="btnThem" VerticalAlignment="Center" Margin="10" Click="btnThem_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountAdd"/>
+                        <TextBlock Margin="5 0 0 0">Create</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnSua" VerticalAlignment="Center" Margin="10" Click="btnSua_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Design"/>
+                        <TextBlock Margin="5 0 0 0">Update</TextBlock>
+                    </StackPanel>
+                </Button>
                 
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20">
-                <Button Style="{StaticResource HoverButtonStyle}" x:Name="btnXoa" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="btnXoa_Click">Xóa</Button>
-                <Button Style="{StaticResource HoverButtonStyle}" x:Name="BtnClear" Width="100" VerticalAlignment="Center" Padding="10" Margin="10" Click="BtnClear_Click">Nhập mới</Button>
+                <Button x:Name="btnXoa" VerticalAlignment="Center" Margin="10" Click="btnXoa_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="DeleteAlertOutline"/>
+                        <TextBlock Margin="5 0 0 0">Delete</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="BtnClear" VerticalAlignment="Center" Margin="10" Click="BtnClear_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Reload"/>
+                        <TextBlock Margin="5 0 0 0">Refresh</TextBlock>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </StackPanel>
 
@@ -85,7 +106,11 @@
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Tìm nhân viên:" VerticalAlignment="Center"></TextBlock>
                 <TextBox x:Name="txtTim" Width="150" VerticalAlignment="Center" Margin="20,0,0,0"></TextBox>
-                <Button Style="{StaticResource HoverButtonStyle}" Height="25" Width="50" x:Name="btnTim" Margin="30,0,0,0" VerticalAlignment="Center" Click="btnTim_Click">Tìm</Button>
+                <Button Height="25" x:Name="btnTim" Margin="30,0,0,0" VerticalAlignment="Center" Click="btnTim_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Search"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">

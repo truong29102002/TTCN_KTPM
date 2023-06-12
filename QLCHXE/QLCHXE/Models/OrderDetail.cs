@@ -9,5 +9,10 @@ namespace QLCHXE.Models
         public double? Gia { get; set; }
         public int? SoLuongMua { get; set; }
         public string Id { get; set; } = null!;
+        public string? IdKh { get; set; }
+        public string? IdOrder { get; set; }
+
+        public virtual ThongTinKhachHang? IdKhNavigation { get; set; }
+        public virtual Order? IdOrderNavigation { get; set; }
     }
 }
