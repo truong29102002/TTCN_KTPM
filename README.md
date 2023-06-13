@@ -1,4 +1,4 @@
-<h2>Học phần: Thực tập chuyên ngành</h2>
+<h2>Học phần: Thực tập chuyên ngành kỹ thuật phần mềm</h2>
 <br/>
 <p>Đề tài: Xây dựng phần mềm quản lý phương tiện giao thông bằng .NET 6 WPF Application</p>
 <p>Các chức năng chính của admin và nhân viên:</p>
