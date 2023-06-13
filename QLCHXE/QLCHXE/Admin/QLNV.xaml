@@ -7,10 +7,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Quan ly nhan vien"
-       Width="1000" Height="800">
+      >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="200"/>
+            
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,7 +20,11 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Margin="20,20,0,0" Orientation="Vertical">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label FontSize="30" FontWeight="Bold">Quản lý nhân viên</Label>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Margin="20,20,0,0" Orientation="Vertical">
            
             
             <StackPanel Orientation="Horizontal" Margin="10">
@@ -30,7 +36,7 @@
                 <TextBlock Text="Giới tính:" FontSize="12" VerticalAlignment="Center" Margin="0,0,10,0"></TextBlock>
                 <ComboBox x:Name="cbxGender">
                     <ComboBoxItem IsSelected="True" Content="Nam"/>
-                    <ComboBoxItem Content="Nu"/>
+                    <ComboBoxItem Content="Nữ"/>
                 </ComboBox>
             </StackPanel>
 
@@ -47,7 +53,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Margin="20,20,0,0" Orientation="Vertical">
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="20,20,0,0" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Địa chỉ:" FontSize="12"></TextBlock>
                 <TextBox x:Name="txtDiaChi" Width="150" Margin="45,0,0,0" VerticalAlignment="Center"></TextBox>
@@ -70,7 +76,7 @@
 
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="2">
+        <StackPanel Grid.Row="1" Orientation="Vertical" Grid.Column="2">
             <StackPanel Orientation="Horizontal" Margin="20">
                 <Button HorizontalAlignment="Left" x:Name="btnThem" VerticalAlignment="Center" Margin="10" Click="btnThem_Click">
                     <StackPanel Orientation="Horizontal">
@@ -102,7 +108,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="50,0,0,0"  Grid.ColumnSpan="2" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="50,0,0,0"  Grid.ColumnSpan="2" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Tìm nhân viên:" VerticalAlignment="Center"></TextBlock>
                 <TextBox x:Name="txtTim" Width="150" VerticalAlignment="Center" Margin="20,0,0,0"></TextBox>
@@ -113,7 +119,7 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
             <DataGrid Style="{StaticResource MaterialDesignDataGrid}" Height="500" Margin="50,50,50,50" x:Name="dtgNV" IsReadOnly="True" AutoGenerateColumns="False" Foreground="Red" SelectedCellsChanged="dtgNV_SelectedCellsChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding MaNv}"/>

@@ -89,3 +89,4 @@ C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\refint
 C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\QLCHXE.pdb
 C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\QLCHXE.genruntimeconfig.cache
 C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\ref\QLCHXE.dll
+C:\Users\xuant\OneDrive\Máy tính\QLCHXE\QLCHXE\obj\Debug\net6.0-windows\Templates.baml

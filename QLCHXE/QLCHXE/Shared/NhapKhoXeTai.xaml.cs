@@ -325,9 +325,12 @@ namespace QLCHXE.Shared
 
 
 
-                                    db.SaveChanges();
-                                    MessageBox.Show("Đã cập nhật thành công!", "Thong bao");
-                                    LoadDataGrid();
+                                    if (MessageBox.Show("Xác nhận sửa đổi!", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                                    {
+                                        db.SaveChanges();
+                                        MessageBox.Show("Đã cập nhật thành công!", "Thong bao");
+                                        LoadDataGrid();
+                                    }
                                 }
                                 catch (Exception ex)
                                 {
@@ -382,9 +385,12 @@ namespace QLCHXE.Shared
                                         xm.TrongTai = int.Parse(txtTrongTai.Text);
                                     }
 
-                                    db.SaveChanges();
-                                    MessageBox.Show("Đã cập nhật thành công!", "Thong bao");
-                                    LoadDataGrid();
+                                    if (MessageBox.Show("Xác nhận sửa đổi!", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                                    {
+                                        db.SaveChanges();
+                                        MessageBox.Show("Đã cập nhật thành công!", "Thong bao");
+                                        LoadDataGrid();
+                                    }
                                 }
                                 else
                                 {

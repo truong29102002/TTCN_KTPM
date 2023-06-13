@@ -31,103 +31,43 @@ namespace QLCHXE.Admin
         public TrangChuAdmin()
         {
             InitializeComponent();
-            InitializeButtonColors();
+            
             
         }
-        private void InitializeButtonColors()
-        {
-            buttonColors = new Dictionary<Button, Brush>();
-            buttonColors.Add(Btn_DangXuat, Brushes.Transparent);
-            buttonColors.Add(btn_NV_KHO, Brushes.Transparent);
-            buttonColors.Add(Btn_DoiMK, Brushes.Transparent);
-            buttonColors.Add(Btn_NhapOto, Brushes.Transparent);
-            buttonColors.Add(Btn_NhapXeMay, Brushes.Transparent);
-            buttonColors.Add(Btn_NhapXeTai, Brushes.Transparent);
-            buttonColors.Add(Btn_QuanLyBanXe, Brushes.Transparent);
-            buttonColors.Add(Btn_QuanLyNV, Brushes.Transparent);
-            buttonColors.Add(Btn_QuanLyOto, Brushes.Transparent);
-            buttonColors.Add(Btn_QuanLyXeMay, Brushes.Transparent);
-            buttonColors.Add(Btn_QuanLyXetai, Brushes.Transparent);
-            buttonColors.Add(btnThongKe, Brushes.Transparent);
-            
-        }
+        
         private void Btn_QuanLyNV_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new QLNV());
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            
         }
 
         private void Btn_QuanLyXeMay_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new QLXeMay());
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
+            mainFrame.Navigate(new QLXeMay { IdUser =this.idUser});
 
-            UpdateButtonColors(); 
         }
 
         private void Btn_QuanLyOto_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new QLOTO());
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            mainFrame.Navigate(new QLOTO { IdUser = this.idUser});
+            
         }
         private void Btn_DoiMK_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new DOIMK { idUser = this.idUser});
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            
         }
         private void Btn_DangXuat_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            mainWindow.Show();
+            if(MessageBox.Show("Đăng xuất!","Thông báo",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                mainWindow.Show();
 
-            this.Close();
+                this.Close();
+            }
+            
         }
 
         private void close_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -142,74 +82,26 @@ namespace QLCHXE.Admin
 
         private void Btn_QuanLyXetai_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new QLXeTai());
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            mainFrame.Navigate(new QLXeTai { IdUser = this.idUser});
+            
         }
 
         private void Btn_NhapXeMay_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new KhoXeMay { idUSer = this.idUser});
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            
         }
 
         private void Btn_NhapOto_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new NhapKhoOTO { idUSer = this.idUser });
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            
         }
 
         private void Btn_NhapXeTai_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new NhapKhoXeTai { idUSer = this.idUser});
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            
         }
 
         
@@ -217,64 +109,27 @@ namespace QLCHXE.Admin
         private void Btn_QuanLyBanXe_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new NhaTaiTro());
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            
         }
 
-        private void UpdateButtonColors()
-        {
-            foreach (var pair in buttonColors)
-            {
-                pair.Key.Background = pair.Value;
-            }
-        }
+        
 
         private void btn_NV_KHO_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new NhanVienQuanLyKho());
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
-
-            UpdateButtonColors();
+            
         }
 
         private void btnThongKe_Click(object sender, RoutedEventArgs e)
         {
             ReportReview reportReview = new ReportReview();
             reportReview.Show();
-            Button clickedButton = sender as Button;
-            if (buttonColors.ContainsKey(clickedButton))
-            {
-                foreach (var button in buttonColors.Keys)
-                {
-                    if (button == clickedButton)
-                        buttonColors[button] = Brushes.LightGray; // Màu khi được click
-                    else
-                        buttonColors[button] = Brushes.Transparent; // Màu khi không được click
-                }
-            }
+            
+        }
 
-            UpdateButtonColors();
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = null;
         }
     }
 }

@@ -27,6 +27,7 @@ namespace QLCHXE.Shared
     {
         private readonly QLCHXeContext _db;
         private List<GridQLOTO> listData;
+        public string IdUser { get; set; }
         public void LoadCBXHSX()
         {
             var query = from i in _db.HangXes orderby i.Tenhanngxe ascending select i;
@@ -115,7 +116,7 @@ namespace QLCHXE.Shared
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-            NhapKhoOTO khoXeMay = new NhapKhoOTO();
+            NhapKhoOTO khoXeMay = new NhapKhoOTO { idUSer = this.IdUser};
             khoXeMay.btnBack.Visibility = Visibility.Visible;
             NavigationService.Navigate(khoXeMay);
 
@@ -249,7 +250,7 @@ namespace QLCHXE.Shared
         private void btnNhapMoi_Click(object sender, RoutedEventArgs e)
         {
             txtTenXe.Text = "";
-            txtSoluong.Text = "";
+            
             txtMota.Text = "";
             txtGiaban.Text = "";
             txtDonVi.Text = "";
@@ -266,7 +267,7 @@ namespace QLCHXE.Shared
         {
             if (dtgQLXoto.SelectedItem != null)
             {
-                if (string.IsNullOrEmpty(txtDongCo.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtSoChoNgoi.Text.Trim()) || string.IsNullOrEmpty(txtSoluong.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()) )
+                if (string.IsNullOrEmpty(txtDongCo.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtSoChoNgoi.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()) )
                 {
                     MessageBox.Show("Có ô chưa nhập dữ liệu!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -287,7 +288,7 @@ namespace QLCHXE.Shared
                         pt.Mamau = ((Mau)cbxMau.SelectedItem).Mamau;
                         pt.TenXe = txtTenXe.Text;
                         
-                        pt.Soluong = int.Parse(txtSoluong.Text);
+                       
                         pt.Mota = txtMota.Text;
                         pt.Donvi = txtDonVi.Text;
                         pt.IdHangXe = ((HangXe)cbxHangsx.SelectedItem).IdHangXe;
@@ -334,7 +335,6 @@ namespace QLCHXE.Shared
                     txtDonVi.Text = propertyInfos[11].GetValue(dtgQLXoto.SelectedValue).ToString();
                     txtDongCo.Text = propertyInfos[7].GetValue(dtgQLXoto.SelectedValue).ToString();
                     txtSoChoNgoi.Text = propertyInfos[8].GetValue(dtgQLXoto.SelectedValue).ToString();
-                    txtSoluong.Text = propertyInfos[10].GetValue(dtgQLXoto.SelectedValue).ToString();
                     txtMota.Text = propertyInfos[12].GetValue(dtgQLXoto.SelectedValue).ToString();
                     
                     cbxHangsx.Text = propertyInfos[3].GetValue(dtgQLXoto.SelectedValue).ToString();

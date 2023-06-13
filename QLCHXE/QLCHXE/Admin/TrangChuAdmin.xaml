@@ -14,7 +14,7 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="230"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -44,28 +44,242 @@
                         <ColumnDefinition Width="1"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
+                        
+                        <!--<StackPanel Grid.Column="1">
+                            <Rectangle Fill="Black" Width="0.5" Height="1080" x:Name="RectangleMenu" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        </StackPanel>-->
 
+                        <!--Test ui-->
 
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyNV" Click="Btn_QuanLyNV_Click">Quản lý nhân viên</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="btn_NV_KHO" Click="btn_NV_KHO_Click" >Quản lý nhân viên kho</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXeMay" Click="Btn_QuanLyXeMay_Click">Quản lý xe máy</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyOto" Click="Btn_QuanLyOto_Click">Quản lý ô tô</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyXetai" Click="Btn_QuanLyXetai_Click">Quản lý xe tải</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeMay" Click="Btn_NhapXeMay_Click">Kho xe máy</Button>
+                        <StackPanel Background="#2E333A"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left">
 
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapOto" Click="Btn_NhapOto_Click">Kho ô tô</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_NhapXeTai" Click="Btn_NhapXeTai_Click">Kho xe tải</Button>
+                            <!--// Channel Name //-->
 
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="btnThongKe" Click="btnThongKe_Click">Thống kê phiếu nhập</Button>
+                            <Grid Height="50"
+                  VerticalAlignment="Top"
+                  Margin="0,30,0,0">
 
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_QuanLyBanXe" Click="Btn_QuanLyBanXe_Click">Nhà cung cấp</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DoiMK" Click="Btn_DoiMK_Click" >Đổi mật khẩu</Button>
-                        <Button Style="{StaticResource MaterialDesignFlatDarkButton}" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="17" Height="50" VerticalAlignment="Top" x:Name="Btn_DangXuat" Click="Btn_DangXuat_Click" Margin="0,10,0,0">Đăng xuất</Button>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <Rectangle Fill="Black" Width="0.5" Height="1080" x:Name="RectangleMenu" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                                <Border Background="#D61734"
+                        Height="25"
+                        CornerRadius="3,0,0,3"
+                        Width="6"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right" />
+
+                                <TextBlock Text="A D M I N     O N E G"
+                           Foreground="#FFFFFF"
+                           FontFamily="Fonts/#Orbitron Medium"
+                           FontSize="19"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+
+                            </Grid>
+
+                            <!--// Main Menu //-->
+
+                            <Menu Height="900"
+                  Background="#2E333A"
+                  Margin="0,40,0,0">
+
+                                <Menu.ItemsPanel>
+
+                                    <ItemsPanelTemplate>
+
+                                        <VirtualizingStackPanel Orientation="Vertical" />
+
+                                    </ItemsPanelTemplate>
+
+                                </Menu.ItemsPanel>
+
+                                <!--// Main Menu - Home //-->
+
+                                <MenuItem Header="Home" Click="MenuItem_Click"
+                          Template="{StaticResource Menu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="Home" Foreground="White" Height="30" Width="37"/>
+
+                                    </MenuItem.Icon>
+
+                                </MenuItem>
+
+                                <!--// Main Menu - Nhan vien //-->
+
+                                <MenuItem Header="Nhân viên" Cursor="Hand" 
+                          Template="{StaticResource Menu_SubMenu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="Human" Foreground="White" Height="32" Width="30"/>
+
+                                    </MenuItem.Icon>
+
+                                    <!--// Music Submenu - All Songs //-->
+
+                                    <MenuItem Header="All Nhân viên" Click="Btn_QuanLyNV_Click" Cursor="Hand"
+                              Template="{StaticResource Item_Template}">
+
+                                        <MenuItem.Icon>
+
+                                            <materialDesign:PackIcon Kind="PeopleGroup" Foreground="White" Height="32" Width="30"/>
+
+                                        </MenuItem.Icon>
+
+                                    </MenuItem>
+
+                                    <!--// Menu nhan vien - quan kho //-->
+
+                                    <MenuItem Header="Quản kho" Click="btn_NV_KHO_Click" Cursor="Hand"
+                              Template="{StaticResource Item_Template}">
+
+                                        <MenuItem.Icon>
+
+                                            <materialDesign:PackIcon Kind="NaturePeople" Foreground="White" Height="32" Width="30"/>
+
+                                        </MenuItem.Icon>
+
+                                    </MenuItem>
+
+                                    <!--End nhan vien-->
+
+                                </MenuItem>
+
+                                <!--// Main Menu - cua hang //-->
+
+                                <MenuItem Header="Cửa hàng"
+                          Template="{StaticResource Menu_SubMenu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="Store" Foreground="White" Height="30" Width="37"/>
+
+                                    </MenuItem.Icon>
+
+                                    <!--menu - xe may-->
+
+                                    <MenuItem Header="QL Xe máy" Click="Btn_QuanLyXeMay_Click" Cursor="Hand" Template="{StaticResource Item_Template}">
+                                        <MenuItem.Icon>
+
+                                            <materialDesign:PackIcon Kind="Motorbike" Foreground="White" Height="32" Width="30"/>
+
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+
+                                    <!--menu - xe o to-->
+                                    <MenuItem Header="QL Ô tô" Click="Btn_QuanLyOto_Click" Cursor="Hand" Template="{StaticResource Item_Template}">
+                                        <MenuItem.Icon>
+
+                                            <materialDesign:PackIcon Kind="Car" Foreground="White" Height="32" Width="30"/>
+
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+
+                                    <!--menu - xe tai-->
+                                    <MenuItem Header="QL Xe tải" Click="Btn_QuanLyXetai_Click" Cursor="Hand" Template="{StaticResource Item_Template}">
+                                        <MenuItem.Icon>
+
+                                            <materialDesign:PackIcon Kind="TruckCheck" Foreground="White" Height="32" Width="30"/>
+
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+
+                                    <!--End - cửa hàng-->
+                                </MenuItem>
+
+                                <!--// Main Menu - kho //-->
+
+                                <MenuItem Header="Kho"
+                          Template="{StaticResource Menu_SubMenu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="StoreEdit" Foreground="White" Height="30" Width="32"/>
+
+                                    </MenuItem.Icon>
+                                    <!--menu - kho quan ly xe may-->
+                                    <MenuItem Header="Kho xe máy" Template="{StaticResource Item_Template}" Click="Btn_NhapXeMay_Click">
+                                        <MenuItem.Icon>
+                                            <materialDesign:PackIcon Kind="Motorbike" Foreground="White" Height="32" Width="30"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <!--menu - kho quan ly xe tai-->
+                                    <MenuItem Header="Kho xe tải" Template="{StaticResource Item_Template}" Click="Btn_NhapXeTai_Click">
+                                        <MenuItem.Icon>
+                                            <materialDesign:PackIcon Kind="Truck" Foreground="White" Height="32" Width="30"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <!--menu - kho quan ly xe o to-->
+                                    <MenuItem Header="Kho xe oto" Template="{StaticResource Item_Template}" Click="Btn_NhapOto_Click">
+                                        <MenuItem.Icon>
+                                            <materialDesign:PackIcon Kind="Car" Foreground="White" Height="32" Width="30"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <!--end kho-->
+                                </MenuItem>
+
+                                <!--// Main Menu - nha cung cap //-->
+
+                                <MenuItem Header="Nhà cung cấp" Click="Btn_QuanLyBanXe_Click"
+                          Template="{StaticResource Menu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="Offer" Foreground="White" Height="30" Width="31"/>
+
+                                    </MenuItem.Icon>
+
+                                </MenuItem>
+
+                                <!--// Main Menu - thong ke //-->
+
+                                <MenuItem Header="Thống kê" Click="btnThongKe_Click" Cursor="Hand"
+                          Template="{StaticResource Menu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="ReportAreaspline" Foreground="White" Height="31" Width="32"/>
+
+                                    </MenuItem.Icon>
+
+                                </MenuItem>
+
+                                
+                                <!--// Main Menu - change password //-->
+
+                                <MenuItem Header="Đổi mật khẩu" Click="Btn_DoiMK_Click" Cursor="Hand"
+                          Template="{StaticResource Menu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="PasswordSecure" Foreground="White" Height="27" Width="31"/>
+
+                                    </MenuItem.Icon>
+
+                                </MenuItem>
+
+                                <!--// Main Menu - Exit //-->
+
+                                <MenuItem Header="Exit" Click="Btn_DangXuat_Click"
+                          Template="{StaticResource Menu_Template}">
+
+                                    <MenuItem.Icon>
+
+                                        <materialDesign:PackIcon Kind="Logout" Foreground="White" Height="36"  VerticalAlignment="Center" Width="29"/>
+
+                                    </MenuItem.Icon>
+
+                                </MenuItem>
+
+                            </Menu>
+
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
+
+
 
 
             </ScrollViewer>

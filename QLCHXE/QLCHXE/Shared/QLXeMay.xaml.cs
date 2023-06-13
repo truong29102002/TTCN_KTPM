@@ -113,10 +113,11 @@ namespace QLCHXE.Shared
             CBXColors();
             LoadDtgView();
         }
+        public string IdUser { get; set; }
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-            KhoXeMay khoXeMay = new KhoXeMay();
+            KhoXeMay khoXeMay = new KhoXeMay { idUSer = this.IdUser};
             khoXeMay.btnBack.Visibility = Visibility.Visible;
             NavigationService.Navigate(khoXeMay);
 

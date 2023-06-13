@@ -10,7 +10,7 @@
     <Grid>
 
 
-        <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgkhoxemay" IsReadOnly="True" AutoGenerateColumns="False" Height="400" Margin="30,361,30,139" SelectedCellsChanged="dtgkhoxemay_SelectedCellsChanged">
+        <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgkhoxemay" IsReadOnly="True" AutoGenerateColumns="False" Height="400" Margin="27,401,34,99" SelectedCellsChanged="dtgkhoxemay_SelectedCellsChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã PT" Binding="{Binding idPt}"/>
                 <DataGridTextColumn Header="Tên xe" Binding="{Binding Tenxe}"/>
@@ -51,42 +51,42 @@
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
-        <Label Content="Quản lý nhập kho ô tô" HorizontalAlignment="Left" Margin="321,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Thông tin xe" HorizontalAlignment="Left" Margin="50,41,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Thông tin nhà cung cấp" HorizontalAlignment="Left" Margin="400,41,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Thông tin khác" HorizontalAlignment="Left" Margin="400,143,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Hãng sản xuất:" HorizontalAlignment="Left" Margin="50,85,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tên xe:" HorizontalAlignment="Left" Margin="50,127,0,0" VerticalAlignment="Top"/>
-        <Label Content="Số chỗ ngồi:" HorizontalAlignment="Left" Margin="50,163,0,0" VerticalAlignment="Top"/>
-        <Label Content="Màu:" HorizontalAlignment="Left" Margin="50,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Quản lý nhập kho ô tô" HorizontalAlignment="Left" Margin="297,15,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+        <Label Content="Thông tin xe" HorizontalAlignment="Left" Margin="47,81,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Thông tin nhà cung cấp" HorizontalAlignment="Left" Margin="397,81,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Thông tin khác" HorizontalAlignment="Left" Margin="397,183,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Hãng sản xuất:" HorizontalAlignment="Left" Margin="51,127,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tên xe:" HorizontalAlignment="Left" Margin="93,170,0,0" VerticalAlignment="Top"/>
+        <Label Content="Số chỗ ngồi:" HorizontalAlignment="Left" Margin="63,207,0,0" VerticalAlignment="Top"/>
+        <Label Content="Màu:" HorizontalAlignment="Left" Margin="102,246,0,0" VerticalAlignment="Top"/>
         <!--<ComboBox x:Name="cbxColor" HorizontalAlignment="Left" Margin="157,201,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cbxHangSX" HorizontalAlignment="Left" Margin="157,87,0,0" VerticalAlignment="Top" Width="120"/>-->
-        <TextBox x:Name="txtten" HorizontalAlignment="Left" Margin="157,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        
-        <Label Content="Nhà cung cấp:" HorizontalAlignment="Left" Margin="403,83,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtgia" HorizontalAlignment="Left" Margin="515,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="txtsln" HorizontalAlignment="Left" Margin="515,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Giá nhập" HorizontalAlignment="Left" Margin="405,181,0,0" VerticalAlignment="Top"/>
-        <Label Content="Số lượng nhập" HorizontalAlignment="Left" Margin="405,218,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtten" HorizontalAlignment="Left" Margin="154,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Nhà cung cấp:" HorizontalAlignment="Left" Margin="404,123,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtgia" HorizontalAlignment="Center" Margin="0,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txtsln" HorizontalAlignment="Center" Margin="0,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Giá nhập:" HorizontalAlignment="Left" Margin="432,224,0,0" VerticalAlignment="Top"/>
+        <Label Content="Số lượng nhập:" HorizontalAlignment="Left" Margin="401,258,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnthem" Content="Thêm" HorizontalAlignment="Left" Margin="976,149,0,0" VerticalAlignment="Top" Click="btnthem_Click" Height="27" />
         <Button x:Name="btnsua" Content="Cập nhật" HorizontalAlignment="Left" Margin="976,208,0,0" VerticalAlignment="Top" Height="32" Click="btnsua_Click"/>
-        <Button x:Name="btnxoa" Content="Xoá" HorizontalAlignment="Left" Margin="976,282,0,0" VerticalAlignment="Top" Height="28" Click="btnxoa_Click"/>
+        <Button x:Name="btnxoa" Content="Xoá" HorizontalAlignment="Left" Margin="976,275,0,0" VerticalAlignment="Top" Height="28" Click="btnxoa_Click"/>
         <!--<ComboBox x:Name="cbxNTT" HorizontalAlignment="Left" Margin="515,85,0,0" VerticalAlignment="Top" Width="210"/>-->
-        <TextBox x:Name="txtSoChoNgoi" HorizontalAlignment="Left" Margin="157,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cbxBrand" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="157,87,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cbxColor" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="157,201,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cbxNTT" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="515,87,0,0" VerticalAlignment="Top" Width="214"/>
-        <TextBlock HorizontalAlignment="Left" Margin="54,241,0,0" TextWrapping="Wrap" Text="Năm sản xuất" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbxNamSX" HorizontalAlignment="Left" Margin="157,238,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="54,276,0,0" TextWrapping="Wrap" Text="Ghi chú" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtMota" HorizontalAlignment="Left" Margin="157,276,0,0" TextWrapping="Wrap" Height="34" VerticalAlignment="Top" Width="120" BorderThickness="0.5"/>
-        <TextBox HorizontalAlignment="Left" Margin="515,266,0,0" TextWrapping="Wrap" x:Name="txtDonVi" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="409,266,0,0" TextWrapping="Wrap" Text="Đơn vị" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="515,301,0,0" TextWrapping="Wrap" x:Name="txtNhapKHo" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="409,303,0,0" TextWrapping="Wrap" x:Name="lbNhapKho" Text="Nhập mã kho:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSoChoNgoi" HorizontalAlignment="Left" Margin="154,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbxBrand" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="154,122,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbxColor" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="154,241,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbxNTT" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="503,118,0,0" VerticalAlignment="Top" Width="214"/>
+        <TextBlock HorizontalAlignment="Left" Margin="61,287,0,0" TextWrapping="Wrap" Text="Năm sản xuất:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxNamSX" HorizontalAlignment="Left" Margin="154,278,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="94,314,0,0" TextWrapping="Wrap" Text="Ghi chú:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMota" HorizontalAlignment="Left" Margin="154,316,0,0" TextWrapping="Wrap" Height="34" VerticalAlignment="Top" Width="120" BorderThickness="0.5"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,295,0,0" TextWrapping="Wrap" x:Name="txtDonVi" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="449,304,0,0" TextWrapping="Wrap" Text="Đơn vị:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,335,0,0" TextWrapping="Wrap" x:Name="txtNhapKHo" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="414,344,0,0" TextWrapping="Wrap" x:Name="lbNhapKho" Text="Nhập mã kho:" VerticalAlignment="Top"/>
         <Button Content="Back" Visibility="Hidden" x:Name="btnBack" HorizontalAlignment="Left" Margin="29,15,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
-        <Button Content="Chuyển vào cửa hàng" HorizontalAlignment="Left" Margin="575,761,0,0" x:Name="btnChuyen" VerticalAlignment="Top" Height="38" Click="btnChuyen_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="54,328,0,0" TextWrapping="Wrap" Text="Kiểu động cơ:" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="157,326,0,0" TextWrapping="Wrap" x:Name="txtKieuDongCo" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Chuyển vào cửa hàng" HorizontalAlignment="Left" Margin="976,328,0,0" x:Name="btnChuyen" VerticalAlignment="Top" Height="38" Click="btnChuyen_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="64,368,0,0" TextWrapping="Wrap" Text="Kiểu động cơ:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="154,359,0,0" TextWrapping="Wrap" x:Name="txtKieuDongCo" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Page>

@@ -28,6 +28,7 @@ namespace QLCHXE.Shared
         private readonly QLCHXeContext _db;
 
         private List<GridXeTai> listData;
+        public string IdUser { get; set; }
 
         public void LoadCBXHSX()
         {
@@ -119,7 +120,7 @@ namespace QLCHXE.Shared
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
 
-            NhapKhoXeTai khoXeMay = new NhapKhoXeTai();
+            NhapKhoXeTai khoXeMay = new NhapKhoXeTai { idUSer = this.IdUser};
             khoXeMay.btnBack.Visibility = Visibility.Visible;
             NavigationService.Navigate(khoXeMay);
 
@@ -130,7 +131,7 @@ namespace QLCHXE.Shared
 
             if (dtgXeTai.SelectedItem != null)
             {
-                if (string.IsNullOrEmpty(txtTrongTai.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtSoluong.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()))
+                if (string.IsNullOrEmpty(txtTrongTai.Text.Trim()) || string.IsNullOrEmpty(txtDonVi.Text.Trim()) || string.IsNullOrEmpty(txtGiaban.Text.Trim()) || string.IsNullOrEmpty(txtMota.Text.Trim()) || string.IsNullOrEmpty(txtTenXe.Text.Trim()))
                 {
                     MessageBox.Show("Có ô chưa nhập dữ liệu!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -151,7 +152,7 @@ namespace QLCHXE.Shared
                         pt.Mamau = ((Mau)cbxMau.SelectedItem).Mamau;
                         pt.TenXe = txtTenXe.Text;
                         
-                        pt.Soluong = int.Parse(txtSoluong.Text);
+                        
                         pt.Mota = txtMota.Text;
                         pt.Donvi = txtDonVi.Text;
                         pt.IdHangXe = ((HangXe)cbxHangsx.SelectedItem).IdHangXe;
@@ -309,7 +310,7 @@ namespace QLCHXE.Shared
         {
 
             txtTenXe.Text = "";
-            txtSoluong.Text = "";
+            
             txtMota.Text = "";
             txtGiaban.Text = "";
             txtDonVi.Text = "";
@@ -334,7 +335,7 @@ namespace QLCHXE.Shared
                     txtGiaban.Text = propertyInfos[5].GetValue(dtgXeTai.SelectedValue).ToString();
                     txtDonVi.Text = propertyInfos[10].GetValue(dtgXeTai.SelectedValue).ToString();
                     txtTrongTai.Text = propertyInfos[7].GetValue(dtgXeTai.SelectedValue).ToString();
-                    txtSoluong.Text = propertyInfos[9].GetValue(dtgXeTai.SelectedValue).ToString();
+                    
                     txtMota.Text = propertyInfos[11].GetValue(dtgXeTai.SelectedValue).ToString();
                     
                     cbxHangsx.Text = propertyInfos[3].GetValue(dtgXeTai.SelectedValue).ToString();

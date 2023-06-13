@@ -6,50 +6,75 @@
       xmlns:local="clr-namespace:QLCHXE.Admin"
       xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      Width="800"
-      Height="500"
+     
       Title="NhanVienQuanLyKho">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Left" FontSize="30" TextWrapping="Wrap" Text="Nhân viên quản lý trong kho" FontWeight="Bold" VerticalAlignment="Top" Foreground="#FFA3AE2E"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Mã Nhân viên: " VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="txtMANV" VerticalAlignment="Top" Width="120" Margin="0 -10 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tên kho:" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="txtTenKHo" VerticalAlignment="Top" Width="120" Margin="5 -10 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Địa chỉ:" VerticalAlignment="Top"/>
+
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="txtDiaChi"  VerticalAlignment="Top" Width="120" Margin="5 -10 0 0"/>
+            </StackPanel>
 
 
-        <TextBlock HorizontalAlignment="Left" Margin="75,54,0,0" TextWrapping="Wrap" Text="Mã Nhân viên" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="154,45,0,0" TextWrapping="Wrap" x:Name="txtMANV" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,91,0,0" TextWrapping="Wrap" Text="Tên kho" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="152,82,0,0" TextWrapping="Wrap" x:Name="txtTenKHo" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,128,0,0" TextWrapping="Wrap" Text="Địa chỉ" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="51,10,0,0" TextWrapping="Wrap" Text="Nhân viên quản lý trong kho" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Foreground="#FFA3AE2E"/>
-        <TextBox HorizontalAlignment="Left" Margin="152,116,0,0" TextWrapping="Wrap" x:Name="txtDiaChi"  VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="77,163,0,0" TextWrapping="Wrap" Text="Diện tích kho" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="152,154,0,0" TextWrapping="Wrap" x:Name="txtDienTich" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnThem" HorizontalAlignment="Left" Margin="442,73,0,0" VerticalAlignment="Top" Height="28" Click="btnThem_Click">
-            <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Add"/>
-                <TextBlock Text="Thêm"/>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Diện tích kho:" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="txtDienTich" VerticalAlignment="Top" Width="120" Margin="5 -10 0 0"/>
             </StackPanel>
-        </Button>
-        <Button x:Name="btnSua" HorizontalAlignment="Left" Margin="442,136,0,0" VerticalAlignment="Top" Height="28" Click="btnSua_Click">
-            <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Create"/>
-                <TextBlock Text="Update"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnXoa" HorizontalAlignment="Left" Margin="596,73,0,0" VerticalAlignment="Top" Height="28" Click="btnXoa_Click">
-            <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Delete"/>
-                <TextBlock Text="Xóa"/>
-            </StackPanel>
-        </Button>
-        <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgNVKHo" IsReadOnly="True" Width="600" Height="200" Margin="75,198,125,52" AutoGenerateColumns="False" SelectedCellsChanged="dtgNVKHo_SelectedCellsChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã kho" Binding="{Binding idKho}"/>
-                <DataGridTextColumn Header="Tên kho" Binding="{Binding TenKho}"/>
-                <DataGridTextColumn Header="Nhân viên phụ trách" Binding="{Binding NV}"/>
-                <DataGridTextColumn Header="Địa chỉ" Binding="{Binding DiaChi}"/>
-                <DataGridTextColumn Header="Diện tích kho (m2)" Width="*" Binding="{Binding DienTich}"/>
 
-            </DataGrid.Columns>
-        </DataGrid>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Button Margin="20 0 20 0" x:Name="btnThem" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Click="btnThem_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Add"/>
+                        <TextBlock Text="Thêm"/>
+                    </StackPanel>
+                </Button>
+                <Button Margin="20 0 20 0" x:Name="btnSua" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Click="btnSua_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Create"/>
+                        <TextBlock Text="Update"/>
+                    </StackPanel>
+                </Button>
+                <Button Margin="20 0 20 0" x:Name="btnXoa" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Click="btnXoa_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Delete"/>
+                        <TextBlock Text="Xóa"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Margin="20">
+                <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgNVKHo" IsReadOnly="True" Height="200" AutoGenerateColumns="False" SelectedCellsChanged="dtgNVKHo_SelectedCellsChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã kho" Binding="{Binding idKho}"/>
+                        <DataGridTextColumn Header="Tên kho" Binding="{Binding TenKho}"/>
+                        <DataGridTextColumn Header="Nhân viên phụ trách" Binding="{Binding NV}"/>
+                        <DataGridTextColumn Header="Địa chỉ" Binding="{Binding DiaChi}"/>
+                        <DataGridTextColumn Header="Diện tích kho (m2)" Width="*" Binding="{Binding DienTich}"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            
+        </StackPanel>
+        
     </Grid>
 
 </Page>

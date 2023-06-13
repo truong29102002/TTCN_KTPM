@@ -4,29 +4,81 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:QLCHXE.Shared"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      Height="450" Width="1000"
-      FontFamily="TimesNewRoman"
-      FontSize="14"
+      
+      
       >
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="47,39,0,0" TextWrapping="Wrap" Text="Tên nhà cung cấp: " VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="191,37,0,0" TextWrapping="Wrap" x:Name="txtTen" VerticalAlignment="Top" Width="567"/>
-        <TextBlock HorizontalAlignment="Left" Margin="47,75,0,0" TextWrapping="Wrap" Text="Số điện thoại: " VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="191,73,0,0" TextWrapping="Wrap" x:Name="txtSDT" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="47,115,0,0" TextWrapping="Wrap" Text="Địa chỉ: " VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="191,113,0,0" TextWrapping="Wrap" x:Name="txtDiachi" VerticalAlignment="Top" Width="650"/>
-        <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgNTT" CanUserAddRows="False" AutoGenerateColumns="False" CanUserDeleteRows="True" IsReadOnly="True" Width="893" Height="200" Margin="47,163,0,87" HorizontalAlignment="Left" SelectedCellsChanged="dtgNTT_SelectedCellsChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Tên nhà cung cấp" Binding="{Binding TenNhaTaiTro}"/>
-                <DataGridTextColumn Header="Số điện thoại" Binding="{Binding sdt}"/>
-                <DataGridTextColumn Header="Địa chỉ" Width="*" Binding="{Binding diachi}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Cursor="Hand" Content="Thêm" HorizontalAlignment="Left" Margin="296,396,0,0" VerticalAlignment="Top" x:Name="btnThem" Click="btnThem_Click"/>
-        <Button Cursor="Hand" Content="Cập nhật" HorizontalAlignment="Left" Margin="377,396,0,0" VerticalAlignment="Top" x:Name="btnSua" Click="btnSua_Click"/>
-        <Button Cursor="Hand" Content="Xóa" HorizontalAlignment="Left" Margin="474,396,0,0" VerticalAlignment="Top" x:Name="btnXoa" Click="btnXoa_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label FontSize="20" FontWeight="Bold">Thông tin nhà cung cấp</Label>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tên nhà cung cấp: " VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="txtTen" VerticalAlignment="Top" Width="400" Margin="10 -5 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Số điện thoại: " VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" x:Name="txtSDT" VerticalAlignment="Top" Width="120" Margin="10 -5 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Địa chỉ: " VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="txtDiachi" VerticalAlignment="Top" Width="400" Margin="10 -5 0 0"/>
+            </StackPanel>
+
+            <DataGrid Style="{StaticResource MaterialDesignDataGrid}" x:Name="dtgNTT" CanUserAddRows="False" AutoGenerateColumns="False" Margin="20" CanUserDeleteRows="True" IsReadOnly="True" Height="200" HorizontalAlignment="Center" SelectedCellsChanged="dtgNTT_SelectedCellsChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Tên nhà cung cấp" Binding="{Binding TenNhaTaiTro}"/>
+                    <DataGridTextColumn Header="Số điện thoại" Binding="{Binding sdt}"/>
+                    <DataGridTextColumn Header="Địa chỉ" Width="*" Binding="{Binding diachi}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <StackPanel Margin="10">
+
+                    <Button Cursor="Hand" HorizontalAlignment="Left"  VerticalAlignment="Top" x:Name="btnThem" Click="btnThem_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Add" Margin="0 5 0 0"/>
+                            <Label Foreground="White">Add</Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Margin="10">
+
+                    <Button Cursor="Hand" HorizontalAlignment="Left"  VerticalAlignment="Top" x:Name="btnSua" Click="btnSua_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Update" Margin="0 3 0 0"/>
+                            <Label Foreground="White" Padding="1 1 1 0">Update</Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Margin="10">
+
+                    <Button Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="btnXoa" Click="btnXoa_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Delete" Margin="0 3 0 0"/>
+                            <Label Foreground="White" Padding="1 1 1 0">Delete</Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+
+            </StackPanel>
+
+        </StackPanel>
+
 
     </Grid>
 </Page>

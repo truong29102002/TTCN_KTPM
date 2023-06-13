@@ -5,16 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLCHXE.Shared"
         mc:Ignorable="d"
-        Height="450" Width="500">
+        >
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="198,104,0,0" FontSize="14" TextWrapping="Wrap" x:Name="txtMKCu" VerticalAlignment="Top" Width="199"/>
-        <TextBlock HorizontalAlignment="Left" Margin="58,104,0,0" TextWrapping="Wrap" FontSize="14" Text="Mật khẩu cũ:" VerticalAlignment="Top" Height="21" Width="86"/>
-        <TextBlock HorizontalAlignment="Left" Margin="70,23,0,0" TextWrapping="Wrap" Text="Đổi mật khẩu" FontSize="20" FontWeight="Bold" VerticalAlignment="Top"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="198,172,0,0" FontSize="14" x:Name="txtMKMOI" VerticalAlignment="Top" Width="199"/>
-        <TextBlock HorizontalAlignment="Left" Margin="58,172,0,0" TextWrapping="Wrap" FontSize="14" Text="Mật khẩu mới:" VerticalAlignment="Top" Height="21" Width="97"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="198,232,0,0" FontSize="14" x:Name="txtMKMOI_compare" VerticalAlignment="Top" Width="199"/>
-        <TextBlock HorizontalAlignment="Left" Margin="58,232,0,0" TextWrapping="Wrap" FontSize="14" Text="Xác nhận lại:" VerticalAlignment="Top" Height="21" Width="86"/>
-        <Button Content="Xác nhận" x:Name="btn_xacNhan" HorizontalAlignment="Left" Margin="301,310,0,0" VerticalAlignment="Top" Height="28" Width="96" Click="btn_xacNhan_Click"/>
+        <StackPanel>
+
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Đổi mật khẩu" FontSize="30" Margin="20" FontWeight="Bold" VerticalAlignment="Top"/>
+            <StackPanel Orientation="Vertical" Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="14" Text="Mật khẩu cũ:" VerticalAlignment="Top" Height="21" Width="86"/>
+                <TextBox HorizontalAlignment="Left" FontSize="14" TextWrapping="Wrap" x:Name="txtMKCu" VerticalAlignment="Top" Width="199"/>
+            </StackPanel>
+
+            <StackPanel Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="14" Text="Mật khẩu mới:" VerticalAlignment="Top" Height="21" Width="97"/>
+                <PasswordBox HorizontalAlignment="Left" FontSize="14" x:Name="txtMKMOI" VerticalAlignment="Top" Width="199"/>
+            </StackPanel>
+
+            <StackPanel Margin="20">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="14" Text="Xác nhận lại:" VerticalAlignment="Top" Height="21" Width="86"/>
+                <PasswordBox HorizontalAlignment="Left" FontSize="14" x:Name="txtMKMOI_compare" VerticalAlignment="Top" Width="199"/>
+            </StackPanel>
+            
+            
+            <Button Margin="20" Content="Xác nhận" x:Name="btn_xacNhan" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="96" Click="btn_xacNhan_Click"/>
+        </StackPanel>
+        
 
     </Grid>
 </Page>
